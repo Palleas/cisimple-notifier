@@ -11,6 +11,7 @@
 @interface PCBuild : NSObject
 
 @property (nonatomic, assign) NSNumber *buildNumber;
+@property (nonatomic, strong) NSString *projectName;
 @property (nonatomic, assign) BOOL passing;
 
 + (PCBuild *)buildWithDictionnary:(NSDictionary *)dict;

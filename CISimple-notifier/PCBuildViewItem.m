@@ -44,10 +44,15 @@
     BOOL passing = ((PCBuild *)representedObject).passing;
     NSString *buildString = [NSString stringWithFormat: @"#%@", ((PCBuild *)representedObject).buildNumber];
     self.textField.stringValue = buildString;
+    
+    self.projectNameField.stringValue = ((PCBuild *)representedObject).projectName;
+
     if (passing) {
         self.textField.textColor = [NSColor successText];
+        self.projectNameField.textColor = [NSColor successText];
     } else {
         self.textField.textColor = [NSColor failureText];
+        self.projectNameField.textColor = [NSColor failureText];
     }
 
     PCBuildView *view = (PCBuildView *)self.view;

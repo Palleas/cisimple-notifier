@@ -10,4 +10,6 @@
 
 @interface PCBuildViewItem : NSCollectionViewItem
 
+@property (nonatomic, assign) IBOutlet NSTextField *projectNameField;
+
 @end

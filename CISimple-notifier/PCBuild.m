@@ -21,6 +21,7 @@
     if (self) {
         self.buildNumber = (NSNumber *)dict[@"build_number"];
         self.passing = [dict[@"build_status"][@"code"] isEqualToString:@"SUCCESS"];
+        self.projectName = (NSString *)dict[@"job"][@"friendly_name"];
     }
     
     return self;
