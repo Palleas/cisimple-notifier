@@ -14,12 +14,18 @@
     // @move ?
     BLYClient *client;
     BLYChannel *buildChannel;
+    NSStatusItem *statusItem;
 }
 
-@property (assign) IBOutlet NSWindow *window;
+
 @property (nonatomic, strong) IBOutlet NSCollectionView *buildCollectionView;
+@property (nonatomic, strong) IBOutlet NSMenu *menu;
+
+@property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, strong) NSMutableArray *builds;
 
 - (void)notifyBuildResult;
+- (IBAction)didPressShowLatestBuilds:(id)sender;
+- (IBAction)didPressQuit:(id)sender;
 
 @end

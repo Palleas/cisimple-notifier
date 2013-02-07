@@ -43,12 +43,6 @@
     NSLog(@"Client disconnected");
 }
 
-- (void)awakeFromNib
-{
-    NSLog(@"I'm awake");
-    self.buildCollectionView.itemPrototype = [[PCBuildViewItem alloc] init];
-}
-
 - (void)notifyBuildResult
 {
     PCBuild *build = [self.builds lastObject];
@@ -77,5 +71,28 @@
 
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification: notification];
 }
+
+
+- (void)awakeFromNib
+{
+    self.buildCollectionView.itemPrototype = [[PCBuildViewItem alloc] init];
+    
+    statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength: NSVariableStatusItemLength];
+    statusItem.title = @"CI";
+    statusItem.menu = self.menu;
+
+}
+
+- (IBAction)didPressShowLatestBuilds:(id)sender
+{
+    NSLog(@"Show latest builds");
+    [self.window makeKeyAndOrderFront: self];
+}
+
+- (IBAction)didPressQuit:(id)sender
+{
+    [[NSApplication sharedApplication] terminate: nil];
+}
+
 
 @end
