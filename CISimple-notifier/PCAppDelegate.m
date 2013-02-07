@@ -20,7 +20,7 @@
 
     buildChannel = [client subscribeToChannelWithName:@"builds"];
     [buildChannel bindToEvent:@"ci-build" block:^(id message) {
-        NSLog(@"Received build");
+        NSLog(@"Received build : %@", message);
 
         PCBuild *build = [PCBuild buildWithDictionnary: message];
         [[self mutableArrayValueForKey:@"builds"] addObject: build];
