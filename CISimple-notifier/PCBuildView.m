@@ -15,7 +15,6 @@
 
 - (void)setPassing:(BOOL)passing
 {
-    NSLog(@"Setting passing");
     _passing = passing;
     
     [self setNeedsDisplay: YES];

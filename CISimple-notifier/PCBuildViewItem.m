@@ -40,8 +40,7 @@
     
     NSAssert([representedObject isKindOfClass: [PCBuild class]], @"PCBuildViewItem only accepts NSDictionnary as represented object");
     
-    BOOL passing = YES; // @todo parse NSDictionnary
-    
+    BOOL passing = ((PCBuild *)representedObject).passing;
     NSString *buildString = [NSString stringWithFormat: @"#%@", ((PCBuild *)representedObject).buildNumber];
     self.textField.stringValue = buildString;
     if (passing) {
@@ -54,7 +53,7 @@
     }
 
     PCBuildView *view = (PCBuildView *)self.view;
-    view.passing = YES;
+    view.passing = passing;
 }
 
 @end
