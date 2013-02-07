@@ -39,7 +39,7 @@
         return;
     }
     
-    NSAssert([representedObject isKindOfClass: [PCBuild class]], @"PCBuildViewItem only accepts NSDictionnary as represented object");
+    NSAssert([representedObject isKindOfClass: [PCBuild class]], @"PCBuildViewItem only accepts PCBuild as represented object");
     
     BOOL passing = ((PCBuild *)representedObject).passing;
     NSString *buildString = [NSString stringWithFormat: @"#%@", ((PCBuild *)representedObject).buildNumber];
