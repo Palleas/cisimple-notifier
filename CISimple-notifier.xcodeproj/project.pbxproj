@@ -21,6 +21,7 @@
 		828F083B16C32C5F00CF73B3 /* PCBuildViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F083A16C32C5F00CF73B3 /* PCBuildViewItem.m */; };
 		828F083E16C3331D00CF73B3 /* PCBuildView.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F083D16C3331D00CF73B3 /* PCBuildView.m */; };
 		828F084316C33A9000CF73B3 /* PCBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084216C33A8F00CF73B3 /* PCBuild.m */; };
+		828F085016C34C2F00CF73B3 /* NSColor+CISimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084F16C34C2F00CF73B3 /* NSColor+CISimple.m */; };
 		94A19E7F8B8B43D7A4FB1622 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BBD00E054A4BFD85B6C9FB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,8 @@
 		828F083D16C3331D00CF73B3 /* PCBuildView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBuildView.m; sourceTree = "<group>"; };
 		828F084116C33A8F00CF73B3 /* PCBuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBuild.h; sourceTree = "<group>"; };
 		828F084216C33A8F00CF73B3 /* PCBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBuild.m; sourceTree = "<group>"; };
+		828F084E16C34C2F00CF73B3 /* NSColor+CISimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+CISimple.h"; sourceTree = "<group>"; };
+		828F084F16C34C2F00CF73B3 /* NSColor+CISimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+CISimple.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,8 @@
 				828F084016C33A6400CF73B3 /* Views */,
 				828F084116C33A8F00CF73B3 /* PCBuild.h */,
 				828F084216C33A8F00CF73B3 /* PCBuild.m */,
+				828F084E16C34C2F00CF73B3 /* NSColor+CISimple.h */,
+				828F084F16C34C2F00CF73B3 /* NSColor+CISimple.m */,
 			);
 			path = "CISimple-notifier";
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 				828F083B16C32C5F00CF73B3 /* PCBuildViewItem.m in Sources */,
 				828F083E16C3331D00CF73B3 /* PCBuildView.m in Sources */,
 				828F084316C33A9000CF73B3 /* PCBuild.m in Sources */,
+				828F085016C34C2F00CF73B3 /* NSColor+CISimple.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

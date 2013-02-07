@@ -19,7 +19,7 @@
 {
     self = [super init];
     if (self) {
-        self.buildNumber = [NSNumber numberWithInt: (int)dict[@"build_number"]];
+        self.buildNumber = (NSNumber *)dict[@"build_number"];
         self.passing = [dict[@"build_status"][@"code"] isEqualToString:@"SUCCESS"];
     }
     

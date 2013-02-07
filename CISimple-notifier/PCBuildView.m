@@ -7,6 +7,7 @@
 //
 
 #import "PCBuildView.h"
+#import "NSColor+CISimple.h"
 
 @implementation PCBuildView
 
@@ -22,15 +23,10 @@
 
 - (void)drawRect:(NSRect)dirtyRect
 {
-    // Drawing code here.
-    NSLog(@"drawing");
     if (self.passing) {
-        [[NSColor colorWithDeviceRed: 0.871
-                               green: 0.941
-                                blue: 0.847
-                               alpha:1.0] setFill];
+        [[NSColor successBackground] setFill];
     } else {
-        [[NSColor redColor] setFill];
+        [[NSColor failureBackground] setFill];
     }
     
     NSRectFill(dirtyRect);

@@ -14,7 +14,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    builds = @[];
+    self.builds = [NSMutableArray array];
+    
     client = [[BLYClient alloc] initWithAppKey: @"5a44e74babe5c2550330" delegate:self];
 
     buildChannel = [client subscribeToChannelWithName:@"builds"];

@@ -14,10 +14,9 @@
     // @move ?
     BLYClient *client;
     BLYChannel *buildChannel;
-    NSArray *builds;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, strong) IBOutlet NSCollectionView *buildCollectionView;
-
+@property (nonatomic, strong) NSMutableArray *builds;
 @end
