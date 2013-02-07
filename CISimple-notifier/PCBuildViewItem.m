@@ -10,6 +10,7 @@
 
 #import "PCBuildView.h"
 #import "PCBuild.h"
+#import "NSColor+CISimple.h"
 
 @interface PCBuildViewItem ()
 
@@ -44,12 +45,9 @@
     NSString *buildString = [NSString stringWithFormat: @"#%@", ((PCBuild *)representedObject).buildNumber];
     self.textField.stringValue = buildString;
     if (passing) {
-        self.textField.textColor = [NSColor colorWithDeviceRed: 0.273
-                                                         green: 0.531
-                                                          blue: 0.277
-                                                         alpha: 1.0];
+        self.textField.textColor = [NSColor successText];
     } else {
-        
+        self.textField.textColor = [NSColor failureText];
     }
 
     PCBuildView *view = (PCBuildView *)self.view;
