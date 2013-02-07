@@ -23,10 +23,7 @@
         NSLog(@"Received build");
 
         PCBuild *build = [PCBuild buildWithDictionnary: message];
-        NSLog(@"Build #%@ %@", build.buildNumber, build.passing ? @"PASSED" : @"Failed");
-//        [builds addObject: build];
-        builds = [builds arrayByAddingObject: build];
-        self.buildCollectionView.content = builds;
+        [[self mutableArrayValueForKey:@"builds"] addObject: build];
     }];
 }
 
