@@ -24,6 +24,7 @@
 
         PCBuild *build = [PCBuild buildWithDictionnary: message];
         [[self mutableArrayValueForKey:@"builds"] addObject: build];
+        [self notifyBuildResult];
     }];
 }
 
@@ -46,6 +47,35 @@
 {
     NSLog(@"I'm awake");
     self.buildCollectionView.itemPrototype = [[PCBuildViewItem alloc] init];
+}
+
+- (void)notifyBuildResult
+{
+    PCBuild *build = [self.builds lastObject];
+    NSString *message;
+    
+    if (self.builds.count == 1) {
+        message = build.passing ? [NSString stringWithFormat: @"Build #%@ passed !", build.buildNumber] : [NSString stringWithFormat: @"Build #%@ failed", build.buildNumber];
+    } else {
+        NSUInteger index = [self.builds indexOfObject: build];
+        PCBuild *previousBuild = [self.builds objectAtIndex: index - 1];
+        
+        if (!previousBuild.passing && !build.passing) {
+            message = @"Build is still failing.";
+        } else if (previousBuild.passing && !build.passing) {
+            message = @"Somebody broke the build.";
+        } else if (!previousBuild.passing && build.passing) {
+            message = @"Build was fixed !";
+        } else {
+            message = @"Build still passing";
+        }
+    }
+    
+    NSUserNotification *notification = [[NSUserNotification alloc] init];
+    notification.title = @"cisimple build";
+    notification.informativeText = message;
+
+    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification: notification];
 }
 
 @end

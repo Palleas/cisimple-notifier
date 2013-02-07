@@ -19,4 +19,7 @@
 @property (assign) IBOutlet NSWindow *window;
 @property (nonatomic, strong) IBOutlet NSCollectionView *buildCollectionView;
 @property (nonatomic, strong) NSMutableArray *builds;
+
+- (void)notifyBuildResult;
+
 @end
