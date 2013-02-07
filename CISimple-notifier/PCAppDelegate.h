@@ -7,9 +7,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <Bully/Bully.h>
 
-@interface PCAppDelegate : NSObject <NSApplicationDelegate>
+@interface PCAppDelegate : NSObject <NSApplicationDelegate, BLYClientDelegate>
+{
+    // @move ?
+    BLYClient *client;
+    BLYChannel *buildChannel;
+    NSArray *builds;
+}
 
 @property (assign) IBOutlet NSWindow *window;
+@property (nonatomic, strong) IBOutlet NSCollectionView *buildCollectionView;
 
 @end

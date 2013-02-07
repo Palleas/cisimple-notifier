@@ -17,6 +17,11 @@
 		8224563916C2E06E008A8FA1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224561916C2E06D008A8FA1 /* Cocoa.framework */; };
 		8224564116C2E06F008A8FA1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8224563F16C2E06F008A8FA1 /* InfoPlist.strings */; };
 		8224564416C2E06F008A8FA1 /* CISimple_notifierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8224564316C2E06F008A8FA1 /* CISimple_notifierTests.m */; };
+		828F083816C32C3C00CF73B3 /* BuildView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828F083716C32C3C00CF73B3 /* BuildView.xib */; };
+		828F083B16C32C5F00CF73B3 /* PCBuildViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F083A16C32C5F00CF73B3 /* PCBuildViewItem.m */; };
+		828F083E16C3331D00CF73B3 /* PCBuildView.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F083D16C3331D00CF73B3 /* PCBuildView.m */; };
+		828F084316C33A9000CF73B3 /* PCBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084216C33A8F00CF73B3 /* PCBuild.m */; };
+		94A19E7F8B8B43D7A4FB1622 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BBD00E054A4BFD85B6C9FB /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20BBD00E054A4BFD85B6C9FB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B8EA89EE5A14EE48A4F8F0A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		8224561616C2E06D008A8FA1 /* CISimple-notifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CISimple-notifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8224561916C2E06D008A8FA1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8224561C16C2E06D008A8FA1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -49,6 +56,13 @@
 		8224564016C2E06F008A8FA1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8224564216C2E06F008A8FA1 /* CISimple_notifierTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CISimple_notifierTests.h; sourceTree = "<group>"; };
 		8224564316C2E06F008A8FA1 /* CISimple_notifierTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CISimple_notifierTests.m; sourceTree = "<group>"; };
+		828F083716C32C3C00CF73B3 /* BuildView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuildView.xib; sourceTree = "<group>"; };
+		828F083916C32C5F00CF73B3 /* PCBuildViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBuildViewItem.h; sourceTree = "<group>"; };
+		828F083A16C32C5F00CF73B3 /* PCBuildViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBuildViewItem.m; sourceTree = "<group>"; };
+		828F083C16C3331D00CF73B3 /* PCBuildView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBuildView.h; sourceTree = "<group>"; };
+		828F083D16C3331D00CF73B3 /* PCBuildView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBuildView.m; sourceTree = "<group>"; };
+		828F084116C33A8F00CF73B3 /* PCBuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBuild.h; sourceTree = "<group>"; };
+		828F084216C33A8F00CF73B3 /* PCBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBuild.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +71,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8224561A16C2E06D008A8FA1 /* Cocoa.framework in Frameworks */,
+				94A19E7F8B8B43D7A4FB1622 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +94,7 @@
 				8224563C16C2E06E008A8FA1 /* CISimple-notifierTests */,
 				8224561816C2E06D008A8FA1 /* Frameworks */,
 				8224561716C2E06D008A8FA1 /* Products */,
+				4B8EA89EE5A14EE48A4F8F0A /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +113,7 @@
 				8224561916C2E06D008A8FA1 /* Cocoa.framework */,
 				8224563716C2E06E008A8FA1 /* SenTestingKit.framework */,
 				8224561B16C2E06D008A8FA1 /* Other Frameworks */,
+				20BBD00E054A4BFD85B6C9FB /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -116,8 +133,11 @@
 			children = (
 				8224562B16C2E06E008A8FA1 /* PCAppDelegate.h */,
 				8224562C16C2E06E008A8FA1 /* PCAppDelegate.m */,
-				8224562E16C2E06E008A8FA1 /* MainMenu.xib */,
+				828F083F16C33A4D00CF73B3 /* Resources */,
 				8224562016C2E06D008A8FA1 /* Supporting Files */,
+				828F084016C33A6400CF73B3 /* Views */,
+				828F084116C33A8F00CF73B3 /* PCBuild.h */,
+				828F084216C33A8F00CF73B3 /* PCBuild.m */,
 			);
 			path = "CISimple-notifier";
 			sourceTree = "<group>";
@@ -153,6 +173,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		828F083F16C33A4D00CF73B3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8224562E16C2E06E008A8FA1 /* MainMenu.xib */,
+				828F083716C32C3C00CF73B3 /* BuildView.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		828F084016C33A6400CF73B3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				828F083916C32C5F00CF73B3 /* PCBuildViewItem.h */,
+				828F083A16C32C5F00CF73B3 /* PCBuildViewItem.m */,
+				828F083C16C3331D00CF73B3 /* PCBuildView.h */,
+				828F083D16C3331D00CF73B3 /* PCBuildView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,6 +203,7 @@
 				8224561216C2E06D008A8FA1 /* Sources */,
 				8224561316C2E06D008A8FA1 /* Frameworks */,
 				8224561416C2E06D008A8FA1 /* Resources */,
+				14CCB2731B854423961CC997 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -228,6 +269,7 @@
 				8224562416C2E06D008A8FA1 /* InfoPlist.strings in Resources */,
 				8224562A16C2E06E008A8FA1 /* Credits.rtf in Resources */,
 				8224563016C2E06E008A8FA1 /* MainMenu.xib in Resources */,
+				828F083816C32C3C00CF73B3 /* BuildView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +284,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		14CCB2731B854423961CC997 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 		8224563416C2E06E008A8FA1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -264,6 +320,9 @@
 			files = (
 				8224562616C2E06D008A8FA1 /* main.m in Sources */,
 				8224562D16C2E06E008A8FA1 /* PCAppDelegate.m in Sources */,
+				828F083B16C32C5F00CF73B3 /* PCBuildViewItem.m in Sources */,
+				828F083E16C3331D00CF73B3 /* PCBuildView.m in Sources */,
+				828F084316C33A9000CF73B3 /* PCBuild.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +441,7 @@
 		};
 		8224564816C2E06F008A8FA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B8EA89EE5A14EE48A4F8F0A /* Pods.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -394,6 +454,7 @@
 		};
 		8224564916C2E06F008A8FA1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B8EA89EE5A14EE48A4F8F0A /* Pods.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -453,6 +514,7 @@
 				8224564916C2E06F008A8FA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8224564A16C2E06F008A8FA1 /* Build configuration list for PBXNativeTarget "CISimple-notifierTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +523,7 @@
 				8224564C16C2E06F008A8FA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
