@@ -75,6 +75,8 @@ static NSString *BuildListFile = @"builds";
     PCBuild *build = [self.builds lastObject];
     NSString *message;
     
+    statusItem.title = build.passing ? @"🎉" : @"🙀";
+
     if (self.builds.count == 1) {
         message = build.passing ? [NSString stringWithFormat: @"Build #%@ passed !", build.buildNumber] : [NSString stringWithFormat: @"Build #%@ failed", build.buildNumber];
     } else {
@@ -82,18 +84,18 @@ static NSString *BuildListFile = @"builds";
         PCBuild *previousBuild = [self.builds objectAtIndex: index - 1];
         
         if (!previousBuild.passing && !build.passing) {
-            message = @"Build is still failing.";
+            message = [NSString stringWithFormat: @"Build #%@ is still failing.", build.buildNumber];
         } else if (previousBuild.passing && !build.passing) {
-            message = @"Somebody broke the build.";
+            message = [NSString stringWithFormat: @"Somebody broke build #%@.", build.buildNumber];
         } else if (!previousBuild.passing && build.passing) {
-            message = @"Build was fixed !";
+            message = [NSString stringWithFormat: @"Build #%@ was fixed.", build.buildNumber];
         } else {
-            message = @"Build still passing";
+            message = [NSString stringWithFormat: @"Build #%@ was fixed.", build.buildNumber];
         }
     }
     
     NSUserNotification *notification = [[NSUserNotification alloc] init];
-    notification.title = @"cisimple build";
+    notification.title = build.projectName;
     notification.informativeText = message;
 
     [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification: notification];
