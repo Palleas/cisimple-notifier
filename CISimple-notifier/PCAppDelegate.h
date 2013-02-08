@@ -11,7 +11,6 @@
 
 @interface PCAppDelegate : NSObject <NSWindowDelegate, NSApplicationDelegate, BLYClientDelegate>
 {
-    // @move ?
     BLYClient *client;
     BLYChannel *buildChannel;
     NSStatusItem *statusItem;
