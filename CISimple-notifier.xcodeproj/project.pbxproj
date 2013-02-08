@@ -139,10 +139,8 @@
 				828F083F16C33A4D00CF73B3 /* Resources */,
 				8224562016C2E06D008A8FA1 /* Supporting Files */,
 				828F084016C33A6400CF73B3 /* Views */,
-				828F084116C33A8F00CF73B3 /* PCBuild.h */,
-				828F084216C33A8F00CF73B3 /* PCBuild.m */,
-				828F084E16C34C2F00CF73B3 /* NSColor+CISimple.h */,
-				828F084F16C34C2F00CF73B3 /* NSColor+CISimple.m */,
+				82E0691D16C497C900052174 /* Model */,
+				82E0691E16C497D700052174 /* Extensions */,
 			);
 			path = "CISimple-notifier";
 			sourceTree = "<group>";
@@ -196,6 +194,24 @@
 				828F083D16C3331D00CF73B3 /* PCBuildView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		82E0691D16C497C900052174 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				828F084116C33A8F00CF73B3 /* PCBuild.h */,
+				828F084216C33A8F00CF73B3 /* PCBuild.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		82E0691E16C497D700052174 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				828F084E16C34C2F00CF73B3 /* NSColor+CISimple.h */,
+				828F084F16C34C2F00CF73B3 /* NSColor+CISimple.m */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
