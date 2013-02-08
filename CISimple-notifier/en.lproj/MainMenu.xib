@@ -1427,19 +1427,19 @@
 				<bool key="NSFilterRestrictsInsertion">YES</bool>
 				<bool key="NSClearsFilterPredicateOnInsertion">YES</bool>
 			</object>
-			<object class="NSMenu" id="17606027">
+			<object class="NSMenu" id="564804054">
 				<string key="NSTitle"/>
 				<array class="NSMutableArray" key="NSMenuItems">
-					<object class="NSMenuItem" id="274343310">
-						<reference key="NSMenu" ref="17606027"/>
+					<object class="NSMenuItem" id="953808201">
+						<reference key="NSMenu" ref="564804054"/>
 						<string key="NSTitle">Show latest builds</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="35465992"/>
 						<reference key="NSMixedImage" ref="502551668"/>
 					</object>
-					<object class="NSMenuItem" id="90585342">
-						<reference key="NSMenu" ref="17606027"/>
+					<object class="NSMenuItem" id="227376453">
+						<reference key="NSMenu" ref="564804054"/>
 						<string key="NSTitle">Quit</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -2084,6 +2084,14 @@
 					<int key="connectionID">535</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="972006081"/>
+						<reference key="destination" ref="976324537"/>
+					</object>
+					<int key="connectionID">570</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">addFontTrait:</string>
 						<reference key="source" ref="755631768"/>
@@ -2143,7 +2151,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">menu</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="17606027"/>
+						<reference key="destination" ref="564804054"/>
 					</object>
 					<int key="connectionID">567</int>
 				</object>
@@ -2151,7 +2159,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">didPressShowLatestBuilds:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="274343310"/>
+						<reference key="destination" ref="953808201"/>
 					</object>
 					<int key="connectionID">568</int>
 				</object>
@@ -2159,7 +2167,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">didPressQuit:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="90585342"/>
+						<reference key="destination" ref="227376453"/>
 					</object>
 					<int key="connectionID">569</int>
 				</object>
@@ -3313,22 +3321,22 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">563</int>
-						<reference key="object" ref="17606027"/>
+						<reference key="object" ref="564804054"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="274343310"/>
-							<reference ref="90585342"/>
+							<reference ref="953808201"/>
+							<reference ref="227376453"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">564</int>
-						<reference key="object" ref="274343310"/>
-						<reference key="parent" ref="17606027"/>
+						<reference key="object" ref="953808201"/>
+						<reference key="parent" ref="564804054"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">565</int>
-						<reference key="object" ref="90585342"/>
-						<reference key="parent" ref="17606027"/>
+						<reference key="object" ref="227376453"/>
+						<reference key="parent" ref="564804054"/>
 					</object>
 				</array>
 			</object>
@@ -3511,7 +3519,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">569</int>
+			<int key="maxID">570</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

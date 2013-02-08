@@ -8,6 +8,10 @@
 
 #import "PCBuild.h"
 
+static NSString *BuildNumberArchiveKey = @"buildNumber";
+static NSString *BuildPassingArchiveKey = @"buildPassing";
+static NSString *ProjectNameArchiveKey = @"projectName";
+
 @implementation PCBuild
 
 + (PCBuild *)buildWithDictionnary:(NSDictionary *)dict
@@ -25,6 +29,28 @@
     }
     
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    NSLog(@"Init build with coder");
+    self = [super init];
+    if (self) {
+        self.buildNumber = [aDecoder decodeObjectForKey: BuildNumberArchiveKey];
+        self.projectName = [aDecoder decodeObjectForKey: ProjectNameArchiveKey];
+        self.passing = [aDecoder decodeBoolForKey: BuildPassingArchiveKey];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    NSLog(@"Encoding build %@ 🙊", self.buildNumber);
+
+    [aCoder encodeObject: self.buildNumber forKey: BuildNumberArchiveKey];
+    [aCoder encodeObject: self.projectName forKey: ProjectNameArchiveKey];
+    [aCoder encodeBool: self.passing forKey: BuildPassingArchiveKey];
 }
 
 @end

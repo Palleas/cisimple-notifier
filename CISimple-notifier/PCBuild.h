@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PCBuild : NSObject
+@interface PCBuild : NSObject <NSCoding>
 
 @property (nonatomic, assign) NSNumber *buildNumber;
 @property (nonatomic, strong) NSString *projectName;
@@ -16,4 +16,5 @@
 
 + (PCBuild *)buildWithDictionnary:(NSDictionary *)dict;
 - (PCBuild *)initWithDictionnary:(NSDictionary *)dict;
+
 @end

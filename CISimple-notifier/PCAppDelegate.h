@@ -9,12 +9,13 @@
 #import <Cocoa/Cocoa.h>
 #import <Bully/Bully.h>
 
-@interface PCAppDelegate : NSObject <NSApplicationDelegate, BLYClientDelegate>
+@interface PCAppDelegate : NSObject <NSWindowDelegate, NSApplicationDelegate, BLYClientDelegate>
 {
     // @move ?
     BLYClient *client;
     BLYChannel *buildChannel;
     NSStatusItem *statusItem;
+    NSURL *buildsURL;
 }
 
 
@@ -27,5 +28,7 @@
 - (void)notifyBuildResult;
 - (IBAction)didPressShowLatestBuilds:(id)sender;
 - (IBAction)didPressQuit:(id)sender;
+
+- (NSURL *)applicationSupportDirectory;
 
 @end
