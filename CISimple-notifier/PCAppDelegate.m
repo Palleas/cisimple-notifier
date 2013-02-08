@@ -78,14 +78,13 @@
     self.buildCollectionView.itemPrototype = [[PCBuildViewItem alloc] init];
     
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength: NSVariableStatusItemLength];
-    statusItem.title = @"CI";
+    statusItem.title = @"😎";
     statusItem.menu = self.menu;
-
 }
 
 - (IBAction)didPressShowLatestBuilds:(id)sender
 {
-    NSLog(@"Show latest builds");
+    [[NSRunningApplication currentApplication] activateWithOptions: NSApplicationActivateIgnoringOtherApps];
     [self.window makeKeyAndOrderFront: self];
 }
 
@@ -93,6 +92,5 @@
 {
     [[NSApplication sharedApplication] terminate: nil];
 }
-
 
 @end
