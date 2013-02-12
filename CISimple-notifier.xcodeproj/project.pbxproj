@@ -20,6 +20,8 @@
 		8224564416C2E06F008A8FA1 /* CISimple_notifierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8224564316C2E06F008A8FA1 /* CISimple_notifierTests.m */; };
 		828F084316C33A9000CF73B3 /* CISBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084216C33A8F00CF73B3 /* CISBuild.m */; };
 		828F085016C34C2F00CF73B3 /* NSColor+CISimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084F16C34C2F00CF73B3 /* NSColor+CISimple.m */; };
+		82F0681F16CA87A900056E53 /* build-payload.json in Resources */ = {isa = PBXBuildFile; fileRef = 82F0681E16CA87A900056E53 /* build-payload.json */; };
+		82F0682016CA8E9000056E53 /* build-payload.json in Resources */ = {isa = PBXBuildFile; fileRef = 82F0681E16CA87A900056E53 /* build-payload.json */; };
 		94A19E7F8B8B43D7A4FB1622 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BBD00E054A4BFD85B6C9FB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,7 @@
 		828F084216C33A8F00CF73B3 /* CISBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CISBuild.m; sourceTree = "<group>"; };
 		828F084E16C34C2F00CF73B3 /* NSColor+CISimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+CISimple.h"; sourceTree = "<group>"; };
 		828F084F16C34C2F00CF73B3 /* NSColor+CISimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+CISimple.m"; sourceTree = "<group>"; };
+		82F0681E16CA87A900056E53 /* build-payload.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "build-payload.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +169,7 @@
 		8224563D16C2E06E008A8FA1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				82F0681E16CA87A900056E53 /* build-payload.json */,
 				8224563E16C2E06E008A8FA1 /* CISimple-notifierTests-Info.plist */,
 				8224563F16C2E06F008A8FA1 /* InfoPlist.strings */,
 			);
@@ -271,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82F0682016CA8E9000056E53 /* build-payload.json in Resources */,
 				8224562416C2E06D008A8FA1 /* InfoPlist.strings in Resources */,
 				8224562A16C2E06E008A8FA1 /* Credits.rtf in Resources */,
 				8224563016C2E06E008A8FA1 /* MainMenu.xib in Resources */,
@@ -282,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8224564116C2E06F008A8FA1 /* InfoPlist.strings in Resources */,
+				82F0681F16CA87A900056E53 /* build-payload.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

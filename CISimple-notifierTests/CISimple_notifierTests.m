@@ -7,26 +7,39 @@
 //
 
 #import "CISimple_notifierTests.h"
+#import "CISBuild.h"
 
 @implementation CISimple_notifierTests
+{
+    NSDictionary *payload;
+}
 
 - (void)setUp
 {
     [super setUp];
-    
-    // Set-up code here.
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"build-payload" ofType:@"json"];
+    NSData *d = [NSData dataWithContentsOfFile: path];
+    NSError *error;
+    payload = [NSJSONSerialization JSONObjectWithData: d
+                                              options: 0
+                                                error: &error];
+    NSAssert(error == nil, @"Woops, payload file wasn't parsed properly");
 }
 
 - (void)tearDown
 {
-    // Tear-down code here.
-    
     [super tearDown];
+    
+    payload = nil;
 }
 
-- (void)testExample
+- (void)testNotificationPayloadParsing
 {
-    STFail(@"Unit tests are not implemented yet in CISimple-notifierTests");
+    CISBuild *build = [CISBuild buildWithDictionnary: payload];
+    
+    STAssertTrue(build.success, @"Build is passing");
+    STAssertTrue([build.buildNumber intValue] == 7, @"Build number must be 7");
+    STAssertTrue([build.projectName isEqualToString: @"Super Social Photo Sharing App"], @"Project name must be Super Social Photo Sharing App");
 }
 
 @end
