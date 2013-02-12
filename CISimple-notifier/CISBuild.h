@@ -8,13 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PCBuild : NSObject <NSCoding>
+@interface CISBuild : NSObject
 
 @property (nonatomic, assign) NSNumber *buildNumber;
 @property (nonatomic, strong) NSString *projectName;
-@property (nonatomic, assign) BOOL passing;
+@property (nonatomic, assign) BOOL success;
 
-+ (PCBuild *)buildWithDictionnary:(NSDictionary *)dict;
-- (PCBuild *)initWithDictionnary:(NSDictionary *)dict;
++ (CISBuild *)buildWithDictionnary:(NSDictionary *)dict;
+- (CISBuild *)initWithDictionnary:(NSDictionary *)dict;
 
 @end

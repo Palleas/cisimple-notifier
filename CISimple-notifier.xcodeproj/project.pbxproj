@@ -18,7 +18,7 @@
 		8224563916C2E06E008A8FA1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224561916C2E06D008A8FA1 /* Cocoa.framework */; };
 		8224564116C2E06F008A8FA1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8224563F16C2E06F008A8FA1 /* InfoPlist.strings */; };
 		8224564416C2E06F008A8FA1 /* CISimple_notifierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8224564316C2E06F008A8FA1 /* CISimple_notifierTests.m */; };
-		828F084316C33A9000CF73B3 /* PCBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084216C33A8F00CF73B3 /* PCBuild.m */; };
+		828F084316C33A9000CF73B3 /* CISBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084216C33A8F00CF73B3 /* CISBuild.m */; };
 		828F085016C34C2F00CF73B3 /* NSColor+CISimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084F16C34C2F00CF73B3 /* NSColor+CISimple.m */; };
 		94A19E7F8B8B43D7A4FB1622 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BBD00E054A4BFD85B6C9FB /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -57,8 +57,8 @@
 		8224564016C2E06F008A8FA1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8224564216C2E06F008A8FA1 /* CISimple_notifierTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CISimple_notifierTests.h; sourceTree = "<group>"; };
 		8224564316C2E06F008A8FA1 /* CISimple_notifierTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CISimple_notifierTests.m; sourceTree = "<group>"; };
-		828F084116C33A8F00CF73B3 /* PCBuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBuild.h; sourceTree = "<group>"; };
-		828F084216C33A8F00CF73B3 /* PCBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBuild.m; sourceTree = "<group>"; };
+		828F084116C33A8F00CF73B3 /* CISBuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CISBuild.h; sourceTree = "<group>"; };
+		828F084216C33A8F00CF73B3 /* CISBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CISBuild.m; sourceTree = "<group>"; };
 		828F084E16C34C2F00CF73B3 /* NSColor+CISimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+CISimple.h"; sourceTree = "<group>"; };
 		828F084F16C34C2F00CF73B3 /* NSColor+CISimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+CISimple.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,8 +183,8 @@
 		82E0691D16C497C900052174 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				828F084116C33A8F00CF73B3 /* PCBuild.h */,
-				828F084216C33A8F00CF73B3 /* PCBuild.m */,
+				828F084116C33A8F00CF73B3 /* CISBuild.h */,
+				828F084216C33A8F00CF73B3 /* CISBuild.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -324,7 +324,7 @@
 			files = (
 				8224562616C2E06D008A8FA1 /* main.m in Sources */,
 				8224562D16C2E06E008A8FA1 /* PCAppDelegate.m in Sources */,
-				828F084316C33A9000CF73B3 /* PCBuild.m in Sources */,
+				828F084316C33A9000CF73B3 /* CISBuild.m in Sources */,
 				828F085016C34C2F00CF73B3 /* NSColor+CISimple.m in Sources */,
 				821DEE4816C8816200A2E7A7 /* PCCiSimple.m in Sources */,
 			);

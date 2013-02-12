@@ -7,8 +7,7 @@
 //
 
 #import "PCAppDelegate.h"
-#import "PCBuildViewItem.h"
-#import "PCBuild.h"
+#import "CISBuild.h"
 #import "PCCiSimple.h"
 #import "SVHTTPRequest.h"
 
@@ -42,6 +41,9 @@
     
     [buildChannel bindToEvent:kBuildUpdatedEventName block:^(id message) {
         NSLog(@"Received payload : %@", message);
+        CISBuild *build = [CISBuild buildWithDictionnary: message];
+        NSLog(@"build number %@", build.buildNumber);
+        
     }];
 }
 
