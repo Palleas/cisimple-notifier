@@ -10,7 +10,7 @@
 
 static NSString *kBuildSuccessKeyPath = @"build.success";
 static NSString *kBuildNumberKeyPath = @"build.build_number";
-static NSString *kProjectNameKeyPath = @"build.build_number";
+static NSString *kProjectNameKeyPath = @"job.friendly_name";
 
 @implementation CISBuild
 
