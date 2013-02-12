@@ -43,6 +43,12 @@
         NSLog(@"Received payload");
         CISBuild *build = [CISBuild buildWithDictionnary: message];
         NSLog(@"Build #%@, phase = %d", build.buildNumber, build.phase);
+        
+        if (build.phase == CISBuildPhaseCompleted) {
+            NSLog(@"Phase is completed : ignoring");
+            return;
+        }
+        
         NSUserNotification *n = [self userNotificationForBuild: build];
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification: n];
     }];
@@ -67,22 +73,20 @@
 {
     NSUserNotification *n = [[NSUserNotification alloc] init];
     n.title = build.projectName;
-    
+
+    // CISBuildPhaseCompleted is not handled (too confusing for the user)
     switch (build.phase) {
         case CISBuildPhaseQueued:
-            n.informativeText = [NSString stringWithFormat: @"A new build (#%@) was queued", build.buildNumber];
+            n.informativeText = [NSString stringWithFormat: @"Build #%@ was queued", build.buildNumber];
             break;
+            
         case CISBuildPhaseStarted:
-            n.informativeText = [NSString stringWithFormat: @"Build #%@ started", build.buildNumber];
-            break;
-
-        case CISBuildPhaseCompleted:
-            n.informativeText = [NSString stringWithFormat: @"Build #%@ is complete", build.buildNumber];
+            n.informativeText = [NSString stringWithFormat: @"Build #%@ has started", build.buildNumber];
             break;
 
         case CISBuildPhaseFinished:
             if (build.success) {
-                n.informativeText = [NSString stringWithFormat: @"Build #%@ succeed", build.buildNumber];
+                n.informativeText = [NSString stringWithFormat: @"Build #%@ succeeded", build.buildNumber];
             } else {
                 n.informativeText = [NSString stringWithFormat: @"Build #%@ failed", build.buildNumber];
             }
@@ -90,14 +94,6 @@
     }
     
     return n;
-}
-
-
-- (void)awakeFromNib
-{
-    statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength: NSVariableStatusItemLength];
-    statusItem.title = @"😎";
-    statusItem.menu = self.menu;
 }
 
 - (IBAction)didPressQuit:(id)sender
