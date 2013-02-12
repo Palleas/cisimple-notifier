@@ -472,6 +472,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CISimple-notifier/CISimple-notifier-Prefix.pch";
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
 				INFOPLIST_FILE = "CISimple-notifier/CISimple-notifier-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -485,6 +486,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CISimple-notifier/CISimple-notifier-Prefix.pch";
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
 				INFOPLIST_FILE = "CISimple-notifier/CISimple-notifier-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
