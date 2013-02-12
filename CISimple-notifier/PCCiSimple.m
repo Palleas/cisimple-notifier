@@ -9,6 +9,8 @@
 #import "PCCiSimple.h"
 #import "SVHTTPRequest.h"
 
+NSString * const kBuildUpdatedEventName = @"build-progress-updated";
+
 @implementation PCCiSimple
 
 @synthesize key = _key;
@@ -38,6 +40,21 @@
                           completion(nil, error);
                       }
                   }];
+}
+
+
+- (void)retrieveAuthentificationForParameters:(NSDictionary *)parameters completionBlock:(CISCompletionHandler)completion;
+{
+    NSAssert(completion != nil, @"Completion block must not be nil");
+
+    NSString *authUrl = [@"/user/channel/auth?access_token=" stringByAppendingString: self.key];
+    [[self sharedClient] POST: authUrl parameters: parameters completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
+        if (nil == error) {
+            completion(response, nil);
+        } else {
+            completion(nil, error);
+        }
+    }];
 }
 
 - (SVHTTPClient *)sharedClient

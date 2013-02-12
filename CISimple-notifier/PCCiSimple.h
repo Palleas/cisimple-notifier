@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const kBuildUpdatedEventName;
+
 typedef void (^CISCompletionHandler)(id response, NSError *error);
 
 @interface PCCiSimple : NSObject
@@ -17,5 +19,6 @@ typedef void (^CISCompletionHandler)(id response, NSError *error);
 - (id)initWithKey:(NSString *)key;
 
 - (void)retrieveChannelInfo:(CISCompletionHandler)completion;
+- (void)retrieveAuthentificationForParameters:(NSDictionary *)parameters completionBlock:(CISCompletionHandler)completion;
 
 @end

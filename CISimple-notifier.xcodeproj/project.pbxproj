@@ -18,8 +18,6 @@
 		8224563916C2E06E008A8FA1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224561916C2E06D008A8FA1 /* Cocoa.framework */; };
 		8224564116C2E06F008A8FA1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8224563F16C2E06F008A8FA1 /* InfoPlist.strings */; };
 		8224564416C2E06F008A8FA1 /* CISimple_notifierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8224564316C2E06F008A8FA1 /* CISimple_notifierTests.m */; };
-		828F083B16C32C5F00CF73B3 /* PCBuildViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F083A16C32C5F00CF73B3 /* PCBuildViewItem.m */; };
-		828F083E16C3331D00CF73B3 /* PCBuildView.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F083D16C3331D00CF73B3 /* PCBuildView.m */; };
 		828F084316C33A9000CF73B3 /* PCBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084216C33A8F00CF73B3 /* PCBuild.m */; };
 		828F085016C34C2F00CF73B3 /* NSColor+CISimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084F16C34C2F00CF73B3 /* NSColor+CISimple.m */; };
 		94A19E7F8B8B43D7A4FB1622 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BBD00E054A4BFD85B6C9FB /* libPods.a */; };
@@ -59,10 +57,6 @@
 		8224564016C2E06F008A8FA1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8224564216C2E06F008A8FA1 /* CISimple_notifierTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CISimple_notifierTests.h; sourceTree = "<group>"; };
 		8224564316C2E06F008A8FA1 /* CISimple_notifierTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CISimple_notifierTests.m; sourceTree = "<group>"; };
-		828F083916C32C5F00CF73B3 /* PCBuildViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBuildViewItem.h; sourceTree = "<group>"; };
-		828F083A16C32C5F00CF73B3 /* PCBuildViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBuildViewItem.m; sourceTree = "<group>"; };
-		828F083C16C3331D00CF73B3 /* PCBuildView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBuildView.h; sourceTree = "<group>"; };
-		828F083D16C3331D00CF73B3 /* PCBuildView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBuildView.m; sourceTree = "<group>"; };
 		828F084116C33A8F00CF73B3 /* PCBuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBuild.h; sourceTree = "<group>"; };
 		828F084216C33A8F00CF73B3 /* PCBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBuild.m; sourceTree = "<group>"; };
 		828F084E16C34C2F00CF73B3 /* NSColor+CISimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+CISimple.h"; sourceTree = "<group>"; };
@@ -139,7 +133,6 @@
 				8224562C16C2E06E008A8FA1 /* PCAppDelegate.m */,
 				828F083F16C33A4D00CF73B3 /* Resources */,
 				8224562016C2E06D008A8FA1 /* Supporting Files */,
-				828F084016C33A6400CF73B3 /* Views */,
 				82E0691D16C497C900052174 /* Model */,
 				82E0691E16C497D700052174 /* Extensions */,
 				821DEE4616C8816200A2E7A7 /* PCCiSimple.h */,
@@ -185,17 +178,6 @@
 				8224562E16C2E06E008A8FA1 /* MainMenu.xib */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		828F084016C33A6400CF73B3 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				828F083916C32C5F00CF73B3 /* PCBuildViewItem.h */,
-				828F083A16C32C5F00CF73B3 /* PCBuildViewItem.m */,
-				828F083C16C3331D00CF73B3 /* PCBuildView.h */,
-				828F083D16C3331D00CF73B3 /* PCBuildView.m */,
-			);
-			name = Views;
 			sourceTree = "<group>";
 		};
 		82E0691D16C497C900052174 /* Model */ = {
@@ -342,8 +324,6 @@
 			files = (
 				8224562616C2E06D008A8FA1 /* main.m in Sources */,
 				8224562D16C2E06E008A8FA1 /* PCAppDelegate.m in Sources */,
-				828F083B16C32C5F00CF73B3 /* PCBuildViewItem.m in Sources */,
-				828F083E16C3331D00CF73B3 /* PCBuildView.m in Sources */,
 				828F084316C33A9000CF73B3 /* PCBuild.m in Sources */,
 				828F085016C34C2F00CF73B3 /* NSColor+CISimple.m in Sources */,
 				821DEE4816C8816200A2E7A7 /* PCCiSimple.m in Sources */,

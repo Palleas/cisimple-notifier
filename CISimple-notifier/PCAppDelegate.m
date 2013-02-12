@@ -10,6 +10,7 @@
 #import "PCBuildViewItem.h"
 #import "PCBuild.h"
 #import "PCCiSimple.h"
+#import "SVHTTPRequest.h"
 
 @implementation PCAppDelegate {
     PCCiSimple *cisimple;
@@ -23,9 +24,24 @@
     [cisimple retrieveChannelInfo:^(id response, NSError *error) {
         if (nil == error) {
             NSLog(@"Channel name is = %@", response);
+            [self connectToChannel: response];
         } else {
             NSLog(@"Got an error retrieving channel : %@", error.localizedDescription);
         }
+    }];
+}
+
+- (void)connectToChannel:(NSString *)channel
+{
+    buildChannel = [bullyClient subscribeToChannelWithName:channel authenticationBlock:^(BLYChannel *channel) {
+        [cisimple retrieveAuthentificationForParameters: channel.authenticationParameters
+                                        completionBlock:^(id response, NSError *error) {
+                                            [channel subscribeWithAuthentication: response];
+                                        }];
+    }];
+    
+    [buildChannel bindToEvent:kBuildUpdatedEventName block:^(id message) {
+        NSLog(@"Received payload : %@", message);
     }];
 }
 
