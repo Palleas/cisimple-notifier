@@ -10,6 +10,7 @@
 
 static NSString *kBuildSuccessKeyPath = @"build.success";
 static NSString *kBuildNumberKeyPath = @"build.build_number";
+static NSString *kBuildPhaseKeyPath = @"build.phase.code";
 static NSString *kProjectNameKeyPath = @"job.friendly_name";
 
 @implementation CISBuild
@@ -23,9 +24,22 @@ static NSString *kProjectNameKeyPath = @"job.friendly_name";
 {
     self = [super init];
     if (self) {
-        self.success = (BOOL)[dict valueForKeyPath: kBuildSuccessKeyPath];
         self.buildNumber = [dict valueForKeyPath: kBuildNumberKeyPath];
         self.projectName = [dict valueForKeyPath: kProjectNameKeyPath];
+        
+        NSString *phaseCode = [dict valueForKeyPath: kBuildPhaseKeyPath];
+        if ([phaseCode isEqualToString: @"STARTED"]) {
+            self.phase = CISBuildPhaseStarted;
+        } else if ([phaseCode isEqualToString: @"COMPLETED"]) {
+            self.phase = CISBuildPhaseCompleted;
+        } else if ([phaseCode isEqualToString: @"FINISHED"]) {
+            self.phase = CISBuildPhaseFinished;
+            self.success = [[dict valueForKeyPath: kBuildSuccessKeyPath] intValue] == 1;
+        } else {
+            [NSException exceptionWithName: @"invalid-build-phase"
+                                    reason: [NSString stringWithFormat: @"Invalid phase code %@", phaseCode]
+                                  userInfo: nil];
+        }
     }
     
     return self;
