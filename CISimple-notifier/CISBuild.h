@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 
 NS_ENUM(int, CISBuildPhase) {
-    CISBuildPhaseStarted = 0,
-    CISBuildPhaseCompleted = 1,
-    CISBuildPhaseFinished = 2
+    CISBuildPhaseQueued = 0,
+    CISBuildPhaseStarted = 1,
+    CISBuildPhaseCompleted = 2,
+    CISBuildPhaseFinished = 3
 };
 
 @interface CISBuild : NSObject
