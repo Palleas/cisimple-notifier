@@ -48,7 +48,7 @@
 		8211E94C16CAB87B00E4ADFE /* cisimple-logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "cisimple-logo.icns"; sourceTree = "<group>"; };
 		821DEE4616C8816200A2E7A7 /* PCCiSimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCiSimple.h; sourceTree = "<group>"; };
 		821DEE4716C8816200A2E7A7 /* PCCiSimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCiSimple.m; sourceTree = "<group>"; };
-		8224561616C2E06D008A8FA1 /* CISimple-notifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CISimple-notifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8224561616C2E06D008A8FA1 /* cisimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cisimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8224561916C2E06D008A8FA1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8224561C16C2E06D008A8FA1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		8224561D16C2E06D008A8FA1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -111,7 +111,7 @@
 		8224561716C2E06D008A8FA1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8224561616C2E06D008A8FA1 /* CISimple-notifier.app */,
+				8224561616C2E06D008A8FA1 /* cisimple.app */,
 				8224563616C2E06E008A8FA1 /* CISimple-notifierTests.octest */,
 			);
 			name = Products;
@@ -232,7 +232,7 @@
 			);
 			name = "CISimple-notifier";
 			productName = "CISimple-notifier";
-			productReference = 8224561616C2E06D008A8FA1 /* CISimple-notifier.app */;
+			productReference = 8224561616C2E06D008A8FA1 /* cisimple.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8224563516C2E06E008A8FA1 /* CISimple-notifierTests */ = {
@@ -474,7 +474,7 @@
 				GCC_PREFIX_HEADER = "CISimple-notifier/CISimple-notifier-Prefix.pch";
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
 				INFOPLIST_FILE = "CISimple-notifier/CISimple-notifier-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = cisimple;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -488,7 +488,7 @@
 				GCC_PREFIX_HEADER = "CISimple-notifier/CISimple-notifier-Prefix.pch";
 				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
 				INFOPLIST_FILE = "CISimple-notifier/CISimple-notifier-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = cisimple;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
