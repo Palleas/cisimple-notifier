@@ -40,10 +40,11 @@
     }];
     
     [buildChannel bindToEvent:kBuildUpdatedEventName block:^(id message) {
-        NSLog(@"Received payload : %@", message);
+        NSLog(@"Received payload");
         CISBuild *build = [CISBuild buildWithDictionnary: message];
-        NSLog(@"build number %@", build.buildNumber);
-        
+        NSLog(@"Build #%@, phase = %d", build.buildNumber, build.phase);
+        NSUserNotification *n = [self userNotificationForBuild: build];
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification: n];
     }];
 }
 
@@ -62,20 +63,34 @@
     NSLog(@"Client disconnected");
 }
 
-//- (void)notifyBuildResult
-//{
-//    NSString *message;
-//    
-//    statusItem.title = build.passing ? @"🎉" : @"🙀";
-//
-//    message = build.passing ? [NSString stringWithFormat: @"Build #%@ passed !", build.buildNumber] : [NSString stringWithFormat: @"Build #%@ failed", build.buildNumber];
-//
-//    NSUserNotification *notification = [[NSUserNotification alloc] init];
-//    notification.title = build.projectName;
-//    notification.informativeText = message;
-//
-//    [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification: notification];
-//}
+- (NSUserNotification *)userNotificationForBuild:(CISBuild *)build
+{
+    NSUserNotification *n = [[NSUserNotification alloc] init];
+    n.title = build.projectName;
+    
+    switch (build.phase) {
+        case CISBuildPhaseQueued:
+            n.informativeText = [NSString stringWithFormat: @"A new build (#%@) was queued", build.buildNumber];
+            break;
+        case CISBuildPhaseStarted:
+            n.informativeText = [NSString stringWithFormat: @"Build #%@ started", build.buildNumber];
+            break;
+
+        case CISBuildPhaseCompleted:
+            n.informativeText = [NSString stringWithFormat: @"Build #%@ is complete", build.buildNumber];
+            break;
+
+        case CISBuildPhaseFinished:
+            if (build.success) {
+                n.informativeText = [NSString stringWithFormat: @"Build #%@ succeed", build.buildNumber];
+            } else {
+                n.informativeText = [NSString stringWithFormat: @"Build #%@ failed", build.buildNumber];
+            }
+            break;
+    }
+    
+    return n;
+}
 
 
 - (void)awakeFromNib

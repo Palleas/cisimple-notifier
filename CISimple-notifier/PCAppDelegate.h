@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <Bully/Bully.h>
+#import "CISBuild.h"
 
 @interface PCAppDelegate : NSObject <NSWindowDelegate, NSApplicationDelegate, BLYClientDelegate>
 {
@@ -20,5 +21,6 @@
 @property (nonatomic, strong) IBOutlet NSMenu *menu;
 
 - (IBAction)didPressQuit:(id)sender;
+- (NSUserNotification *)userNotificationForBuild:(CISBuild *)build;
 
 @end
