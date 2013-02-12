@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		821DEE4816C8816200A2E7A7 /* PCCiSimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 821DEE4716C8816200A2E7A7 /* PCCiSimple.m */; };
 		8224561A16C2E06D008A8FA1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224561916C2E06D008A8FA1 /* Cocoa.framework */; };
 		8224562416C2E06D008A8FA1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8224562216C2E06D008A8FA1 /* InfoPlist.strings */; };
 		8224562616C2E06D008A8FA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8224562516C2E06D008A8FA1 /* main.m */; };
@@ -38,6 +39,8 @@
 /* Begin PBXFileReference section */
 		20BBD00E054A4BFD85B6C9FB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8EA89EE5A14EE48A4F8F0A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		821DEE4616C8816200A2E7A7 /* PCCiSimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCiSimple.h; sourceTree = "<group>"; };
+		821DEE4716C8816200A2E7A7 /* PCCiSimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCiSimple.m; sourceTree = "<group>"; };
 		8224561616C2E06D008A8FA1 /* CISimple-notifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CISimple-notifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8224561916C2E06D008A8FA1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8224561C16C2E06D008A8FA1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -141,6 +144,8 @@
 				828F084016C33A6400CF73B3 /* Views */,
 				82E0691D16C497C900052174 /* Model */,
 				82E0691E16C497D700052174 /* Extensions */,
+				821DEE4616C8816200A2E7A7 /* PCCiSimple.h */,
+				821DEE4716C8816200A2E7A7 /* PCCiSimple.m */,
 			);
 			path = "CISimple-notifier";
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				828F083E16C3331D00CF73B3 /* PCBuildView.m in Sources */,
 				828F084316C33A9000CF73B3 /* PCBuild.m in Sources */,
 				828F085016C34C2F00CF73B3 /* NSColor+CISimple.m in Sources */,
+				821DEE4816C8816200A2E7A7 /* PCCiSimple.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

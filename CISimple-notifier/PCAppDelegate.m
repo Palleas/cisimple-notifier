@@ -9,10 +9,13 @@
 #import "PCAppDelegate.h"
 #import "PCBuildViewItem.h"
 #import "PCBuild.h"
+#import "PCCiSimple.h"
 
 static NSString *BuildListFile = @"builds";
 
-@implementation PCAppDelegate
+@implementation PCAppDelegate {
+    PCCiSimple *cisimple;
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -38,20 +41,15 @@ static NSString *BuildListFile = @"builds";
         }
     }
 
-    client = [[BLYClient alloc] initWithAppKey: @"5a44e74babe5c2550330" delegate:self];
+    bullyClient = [[BLYClient alloc] initWithAppKey: @"01dfb12713a82c1e7088" delegate:self];
 
-    buildChannel = [client subscribeToChannelWithName:@"builds"];
-    [buildChannel bindToEvent:@"ci-build" block:^(id message) {
-        NSLog(@"Received build : %@", message);
-        
-        if (nil == message) {
-            NSLog(@"Notification wasn't parsed properly : not adding build");
-            return;
+    cisimple = [[PCCiSimple alloc] initWithKey: @"uox72jjk6867q59vlj1cbu4qbf63av2yw"];
+    [cisimple retrieveChannelInfo:^(id response, NSError *error) {
+        if (nil == error) {
+            NSLog(@"Channel name is = %@", response);
+        } else {
+            NSLog(@"Got an error retrieving channel : %@", error.localizedDescription);
         }
-
-        PCBuild *build = [PCBuild buildWithDictionnary: message];
-        [[self mutableArrayValueForKey:@"builds"] addObject: build];
-        [self notifyBuildResult];
     }];
 }
 
@@ -166,6 +164,27 @@ static NSString *BuildListFile = @"builds";
             NSLog(@"Build list was written to file");
         }
     }
+}
+
+- (void)client:(PCCiSimple *)client didFetchChannelName:(NSString *)channelName
+{
+    NSLog(@"Did find channel name : %@", channelName);
+    buildChannel = [bullyClient subscribeToChannelWithName: channelName authenticationBlock:^(BLYChannel *channel) {
+        NSLog(@"Authentification ?");
+    }];
+    [buildChannel bindToEvent:@"ci-build" block:^(id message) {
+        NSLog(@"Received build : %@", message);
+        
+        if (nil == message) {
+            NSLog(@"Notification wasn't parsed properly : not adding build");
+            return;
+        }
+        
+        PCBuild *build = [PCBuild buildWithDictionnary: message];
+        [[self mutableArrayValueForKey:@"builds"] addObject: build];
+        [self notifyBuildResult];
+    }];
+    
 }
 
 @end

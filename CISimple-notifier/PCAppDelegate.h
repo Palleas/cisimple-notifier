@@ -11,7 +11,7 @@
 
 @interface PCAppDelegate : NSObject <NSWindowDelegate, NSApplicationDelegate, BLYClientDelegate>
 {
-    BLYClient *client;
+    BLYClient *bullyClient;
     BLYChannel *buildChannel;
     NSStatusItem *statusItem;
     NSURL *buildsURL;
