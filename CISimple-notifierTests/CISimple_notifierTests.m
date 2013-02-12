@@ -27,6 +27,14 @@
     return payload;
 }
 
+- (void)testQueuedBuildNotificationPayloadParsing
+{
+    CISBuild *build = [CISBuild buildWithDictionnary: [self loadPayload: @"build-payload-queued"]];
+    STAssertTrue(build.phase == CISBuildPhaseQueued, @"Build phase must be 'queued'");
+    STAssertTrue([build.buildNumber intValue] == 22, @"Build number must be 22");
+    STAssertTrue([build.projectName isEqualToString: @"Knit-that-shit"], @"Project name must be Knit-that-shit");
+}
+
 - (void)testStartedBuildNotificationPayloadParsing
 {
     CISBuild *build = [CISBuild buildWithDictionnary: [self loadPayload: @"build-payload-started"]];

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8211E94716CAA56100E4ADFE /* build-payload-completed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8211E94616CAA56100E4ADFE /* build-payload-completed.json */; };
 		8211E94916CAA57600E4ADFE /* build-payload-finished.json in Resources */ = {isa = PBXBuildFile; fileRef = 8211E94816CAA57600E4ADFE /* build-payload-finished.json */; };
+		8211E94B16CAB3DC00E4ADFE /* build-payload-queued.json in Resources */ = {isa = PBXBuildFile; fileRef = 8211E94A16CAB3DB00E4ADFE /* build-payload-queued.json */; };
 		821DEE4816C8816200A2E7A7 /* PCCiSimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 821DEE4716C8816200A2E7A7 /* PCCiSimple.m */; };
 		8224561A16C2E06D008A8FA1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224561916C2E06D008A8FA1 /* Cocoa.framework */; };
 		8224562416C2E06D008A8FA1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8224562216C2E06D008A8FA1 /* InfoPlist.strings */; };
@@ -42,6 +43,7 @@
 		4B8EA89EE5A14EE48A4F8F0A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		8211E94616CAA56100E4ADFE /* build-payload-completed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "build-payload-completed.json"; sourceTree = "<group>"; };
 		8211E94816CAA57600E4ADFE /* build-payload-finished.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "build-payload-finished.json"; sourceTree = "<group>"; };
+		8211E94A16CAB3DB00E4ADFE /* build-payload-queued.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "build-payload-queued.json"; sourceTree = "<group>"; };
 		821DEE4616C8816200A2E7A7 /* PCCiSimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCiSimple.h; sourceTree = "<group>"; };
 		821DEE4716C8816200A2E7A7 /* PCCiSimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCiSimple.m; sourceTree = "<group>"; };
 		8224561616C2E06D008A8FA1 /* CISimple-notifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CISimple-notifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +153,7 @@
 		8224562016C2E06D008A8FA1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8211E94A16CAB3DB00E4ADFE /* build-payload-queued.json */,
 				82F0681E16CA87A900056E53 /* build-payload-started.json */,
 				8211E94616CAA56100E4ADFE /* build-payload-completed.json */,
 				8211E94816CAA57600E4ADFE /* build-payload-finished.json */,
@@ -287,6 +290,7 @@
 				8224563016C2E06E008A8FA1 /* MainMenu.xib in Resources */,
 				8211E94716CAA56100E4ADFE /* build-payload-completed.json in Resources */,
 				8211E94916CAA57600E4ADFE /* build-payload-finished.json in Resources */,
+				8211E94B16CAB3DC00E4ADFE /* build-payload-queued.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
