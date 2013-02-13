@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 Perfectly Cooked. All rights reserved.
 //
 
-#import "PCCiSimple.h"
+#import "CISimple.h"
 #import "SVHTTPRequest.h"
 
 NSString * const kBuildUpdatedEventName = @"build-progress-updated";
 
-@implementation PCCiSimple
+@implementation CISimple
 
 @synthesize key = _key;
 
@@ -64,5 +64,7 @@ NSString * const kBuildUpdatedEventName = @"build-progress-updated";
     
     return client;
 }
+
+
 
 @end

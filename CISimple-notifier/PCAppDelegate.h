@@ -18,9 +18,8 @@
     NSURL *buildsURL;
 }
 
-@property (nonatomic, strong) IBOutlet NSMenu *menu;
+@property (nonatomic, strong) IBOutlet NSWindow *preferencesWindow;
 
-- (IBAction)didPressQuit:(id)sender;
-- (NSUserNotification *)userNotificationForBuild:(CISBuild *)build;
+- (IBAction)didEnterAPIKey:(id)sender;
 
 @end
