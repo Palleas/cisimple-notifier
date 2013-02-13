@@ -9,38 +9,38 @@
 #import "PCAppDelegate.h"
 #import "CISBuild.h"
 #import "CISimple.h"
-#import "CISKeychainManager.h"
 #import "SVHTTPRequest.h"
 #import "NSUserNotification+Build.h"
+#import "SSKeychain.h"
 
-
+static NSString *kCISKeychainServiceName = @"cisimple";
+static NSString *kCISKeychainAccountName = @"default";
 
 @implementation PCAppDelegate {
     CISimple *cisimple;
-    CISKeychainManager *keychainManager;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    keychainManager = [[CISKeychainManager alloc] init];
-    [keychainManager retrieveApiKey:^(id response, NSError *error) {
-        if (nil == response && nil == error) {
-            NSAlert *activateAlert = [NSAlert alertWithMessageText: @"API key required"
-                                                     defaultButton: @"OK"
-                                                   alternateButton: nil
-                                                       otherButton: nil
-                                         informativeTextWithFormat: @"Looks like it's your 1st time running cisimple. Please provide your API key."];
-            [self presentPreferencesWindow];
-            [activateAlert beginSheetModalForWindow: self.preferencesWindow
-                                      modalDelegate: nil
-                                     didEndSelector: nil
-                                        contextInfo: nil];
-        } else if (nil != error) {
-            NSLog(@"An error occured : %@", error.localizedDescription);
-        } else {
-            NSLog(@"API key retrieved : %@", response);
-        }
-    }];
+    NSError *error = nil;
+    NSString *apiKey = [SSKeychain passwordForService: kCISKeychainServiceName
+                                                account: kCISKeychainAccountName
+                                                  error: &error];
+
+    NSLog(@"error code : %ld", (long)error.code);
+    if ([error code] == errSecItemNotFound) {
+        NSAlert *activateAlert = [NSAlert alertWithMessageText: @"API key required"
+                                                 defaultButton: @"OK"
+                                               alternateButton: nil
+                                                   otherButton: nil
+                                     informativeTextWithFormat: @"Looks like it's your 1st time running cisimple. Please provide your API key."];
+
+        [self presentPreferencesWindow];
+        [activateAlert beginSheetModalForWindow: self.preferencesWindow
+                                  modalDelegate: nil
+                                 didEndSelector: nil
+                                    contextInfo: nil];
+    }
     
     bullyClient = [[BLYClient alloc] initWithAppKey: @"01dfb12713a82c1e7088" delegate:self];
 
@@ -88,10 +88,12 @@
 - (void)didEnterAPIKey:(id)sender
 {
     // Retrieve entered value
-    NSString *apiKey = [[sender cellAtIndex: 0] stringValue];
+    NSString *apiKey = [sender stringValue];
     NSLog(@"Entered api key = %@", apiKey);
     
-    [keychainManager storeApiKey: apiKey];
+    [SSKeychain setPassword: apiKey
+                 forService: kCISKeychainServiceName
+                    account: kCISKeychainAccountName];
 }
 
 

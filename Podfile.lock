@@ -4,16 +4,19 @@ PODS:
   - Reachability
   - SocketRocket
 - Reachability (3.1.0)
+- SSKeychain (0.2.1)
 - SVHTTPRequest (0.4)
 - SocketRocket (0.2.0)
 
 DEPENDENCIES:
 - Bully (~> 0.2.1)
+- SSKeychain (~> 0.2.1)
 - SVHTTPRequest (~> 0.4)
 
 SPEC CHECKSUMS:
   Bully: f56cd777c548ef2aa579856107818d98e36c49f9
   Reachability: 1c8584c5f26fa776695efef95caaa50402c94cfb
+  SSKeychain: ffa1a79eb716d9ed1ca184fb0cf218087ca28486
   SVHTTPRequest: 02a4b2fa523d3071618b017655c1ebb2ced7406b
   SocketRocket: a0529878e3c4c200196fa3a7e2ac1ef34aa33ffe
 
