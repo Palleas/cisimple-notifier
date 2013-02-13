@@ -8,18 +8,43 @@
 
 #import "PCAppDelegate.h"
 #import "CISBuild.h"
-#import "PCCiSimple.h"
+#import "CISimple.h"
+#import "CISKeychainManager.h"
 #import "SVHTTPRequest.h"
+#import "NSUserNotification+Build.h"
+
+
 
 @implementation PCAppDelegate {
-    PCCiSimple *cisimple;
+    CISimple *cisimple;
+    CISKeychainManager *keychainManager;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    keychainManager = [[CISKeychainManager alloc] init];
+    [keychainManager retrieveApiKey:^(id response, NSError *error) {
+        if (nil == response && nil == error) {
+            NSAlert *activateAlert = [NSAlert alertWithMessageText: @"API key required"
+                                                     defaultButton: @"OK"
+                                                   alternateButton: nil
+                                                       otherButton: nil
+                                         informativeTextWithFormat: @"Looks like it's your 1st time running cisimple. Please provide your API key."];
+            [self presentPreferencesWindow];
+            [activateAlert beginSheetModalForWindow: self.preferencesWindow
+                                      modalDelegate: nil
+                                     didEndSelector: nil
+                                        contextInfo: nil];
+        } else if (nil != error) {
+            NSLog(@"An error occured : %@", error.localizedDescription);
+        } else {
+            NSLog(@"API key retrieved : %@", response);
+        }
+    }];
+    
     bullyClient = [[BLYClient alloc] initWithAppKey: @"01dfb12713a82c1e7088" delegate:self];
 
-    cisimple = [[PCCiSimple alloc] initWithKey: @"uox72jjk6867q59vlj1cbu4qbf63av2yw"];
+    cisimple = [[CISimple alloc] initWithKey: @"uox72jjk6867q59vlj1cbu4qbf63av2yw"];
     [cisimple retrieveChannelInfo:^(id response, NSError *error) {
         if (nil == error) {
             NSLog(@"Channel name is = %@", response);
@@ -49,56 +74,28 @@
             return;
         }
         
-        NSUserNotification *n = [self userNotificationForBuild: build];
+        NSUserNotification *n = [NSUserNotification notificationForBuild: build];
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification: n];
     }];
 }
 
-- (void)bullyClientDidConnect:(BLYClient *)client
+- (void)presentPreferencesWindow
 {
-    NSLog(@"Connected to pusher");
+    [[NSRunningApplication currentApplication] activateWithOptions:NSApplicationActivateIgnoringOtherApps];
+    [self.preferencesWindow makeKeyAndOrderFront: self];
 }
 
-- (void)bullyClient:(BLYClient *)client didReceiveError:(NSError *)error
+- (void)didEnterAPIKey:(id)sender
 {
-    NSLog(@"Client received error : %@", error.localizedDescription);
-}
-
-- (void)bullyClientDidDisconnect:(BLYClient *)client
-{
-    NSLog(@"Client disconnected");
-}
-
-- (NSUserNotification *)userNotificationForBuild:(CISBuild *)build
-{
-    NSUserNotification *n = [[NSUserNotification alloc] init];
-    n.title = build.projectName;
-
-    // CISBuildPhaseCompleted is not handled (too confusing for the user)
-    switch (build.phase) {
-        case CISBuildPhaseQueued:
-            n.informativeText = [NSString stringWithFormat: @"Build #%@ was queued", build.buildNumber];
-            break;
-            
-        case CISBuildPhaseStarted:
-            n.informativeText = [NSString stringWithFormat: @"Build #%@ has started", build.buildNumber];
-            break;
-
-        case CISBuildPhaseFinished:
-            if (build.success) {
-                n.informativeText = [NSString stringWithFormat: @"Build #%@ succeeded", build.buildNumber];
-            } else {
-                n.informativeText = [NSString stringWithFormat: @"Build #%@ failed", build.buildNumber];
-            }
-            break;
-    }
+    // Retrieve entered value
+    NSString *apiKey = [sender stringValue];
+    NSLog(@"Entered api key = %@", apiKey);
     
-    return n;
+    [keychainManager storeApiKey: apiKey];
 }
 
-- (IBAction)didPressQuit:(id)sender
-{
-    [[NSApplication sharedApplication] terminate: nil];
-}
+
+
+
 
 @end

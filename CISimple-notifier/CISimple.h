@@ -12,7 +12,7 @@ extern NSString * const kBuildUpdatedEventName;
 
 typedef void (^CISCompletionHandler)(id response, NSError *error);
 
-@interface PCCiSimple : NSObject
+@interface CISimple : NSObject
 
 @property (nonatomic, copy, readonly) NSString *key;
 
@@ -20,5 +20,8 @@ typedef void (^CISCompletionHandler)(id response, NSError *error);
 
 - (void)retrieveChannelInfo:(CISCompletionHandler)completion;
 - (void)retrieveAuthentificationForParameters:(NSDictionary *)parameters completionBlock:(CISCompletionHandler)completion;
+
+- (void)retrieveAPIKey:(CISCompletionHandler)completion;
+- (void)saveAPIKey:(NSString *)key;
 
 @end
