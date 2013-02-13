@@ -88,7 +88,7 @@
 - (void)didEnterAPIKey:(id)sender
 {
     // Retrieve entered value
-    NSString *apiKey = [sender stringValue];
+    NSString *apiKey = [[sender cellAtIndex: 0] stringValue];
     NSLog(@"Entered api key = %@", apiKey);
     
     [keychainManager storeApiKey: apiKey];
