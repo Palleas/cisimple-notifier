@@ -23,6 +23,8 @@
 		8224564116C2E06F008A8FA1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8224563F16C2E06F008A8FA1 /* InfoPlist.strings */; };
 		8224564416C2E06F008A8FA1 /* CISimple_notifierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8224564316C2E06F008A8FA1 /* CISimple_notifierTests.m */; };
 		822E36B316CB2B1D009D0D93 /* NSUserNotification+Build.m in Sources */ = {isa = PBXBuildFile; fileRef = 822E36B216CB2B1D009D0D93 /* NSUserNotification+Build.m */; };
+		823BF51416CD52DE004D99F1 /* icon_16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 823BF51316CD52DE004D99F1 /* icon_16x16.png */; };
+		823BF51616CD5322004D99F1 /* icon_32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 823BF51516CD5322004D99F1 /* icon_32x32.png */; };
 		828F084316C33A9000CF73B3 /* CISBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084216C33A8F00CF73B3 /* CISBuild.m */; };
 		828F085016C34C2F00CF73B3 /* NSColor+CISimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084F16C34C2F00CF73B3 /* NSColor+CISimple.m */; };
 		82F0681F16CA87A900056E53 /* build-payload-started.json in Resources */ = {isa = PBXBuildFile; fileRef = 82F0681E16CA87A900056E53 /* build-payload-started.json */; };
@@ -46,7 +48,7 @@
 		8211E94616CAA56100E4ADFE /* build-payload-completed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "build-payload-completed.json"; sourceTree = "<group>"; };
 		8211E94816CAA57600E4ADFE /* build-payload-finished.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "build-payload-finished.json"; sourceTree = "<group>"; };
 		8211E94A16CAB3DB00E4ADFE /* build-payload-queued.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "build-payload-queued.json"; sourceTree = "<group>"; };
-		8211E94C16CAB87B00E4ADFE /* cisimple-logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "cisimple-logo.icns"; sourceTree = "<group>"; };
+		8211E94C16CAB87B00E4ADFE /* cisimple-logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "cisimple-logo.icns"; path = "../cisimple-logo.icns"; sourceTree = "<group>"; };
 		821DEE4616C8816200A2E7A7 /* CISimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CISimple.h; sourceTree = "<group>"; };
 		821DEE4716C8816200A2E7A7 /* CISimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CISimple.m; sourceTree = "<group>"; };
 		8224561616C2E06D008A8FA1 /* cisimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cisimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,8 @@
 		8224564316C2E06F008A8FA1 /* CISimple_notifierTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CISimple_notifierTests.m; sourceTree = "<group>"; };
 		822E36B116CB2B1C009D0D93 /* NSUserNotification+Build.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserNotification+Build.h"; sourceTree = "<group>"; };
 		822E36B216CB2B1D009D0D93 /* NSUserNotification+Build.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserNotification+Build.m"; sourceTree = "<group>"; };
+		823BF51316CD52DE004D99F1 /* icon_16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_16x16.png; sourceTree = "<group>"; };
+		823BF51516CD5322004D99F1 /* icon_32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_32x32.png; sourceTree = "<group>"; };
 		828F084116C33A8F00CF73B3 /* CISBuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CISBuild.h; sourceTree = "<group>"; };
 		828F084216C33A8F00CF73B3 /* CISBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CISBuild.m; sourceTree = "<group>"; };
 		828F084E16C34C2F00CF73B3 /* NSColor+CISimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+CISimple.h"; sourceTree = "<group>"; };
@@ -102,7 +106,6 @@
 		8224560D16C2E06D008A8FA1 = {
 			isa = PBXGroup;
 			children = (
-				8211E94C16CAB87B00E4ADFE /* cisimple-logo.icns */,
 				8224561F16C2E06D008A8FA1 /* CISimple-notifier */,
 				8224563C16C2E06E008A8FA1 /* CISimple-notifierTests */,
 				8224561816C2E06D008A8FA1 /* Frameworks */,
@@ -196,6 +199,9 @@
 		828F083F16C33A4D00CF73B3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8211E94C16CAB87B00E4ADFE /* cisimple-logo.icns */,
+				823BF51516CD5322004D99F1 /* icon_32x32.png */,
+				823BF51316CD52DE004D99F1 /* icon_16x16.png */,
 				8224562E16C2E06E008A8FA1 /* MainMenu.xib */,
 			);
 			name = Resources;
@@ -300,6 +306,8 @@
 				8211E94916CAA57600E4ADFE /* build-payload-finished.json in Resources */,
 				8211E94B16CAB3DC00E4ADFE /* build-payload-queued.json in Resources */,
 				8211E94D16CAB87B00E4ADFE /* cisimple-logo.icns in Resources */,
+				823BF51416CD52DE004D99F1 /* icon_16x16.png in Resources */,
+				823BF51616CD5322004D99F1 /* icon_32x32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
