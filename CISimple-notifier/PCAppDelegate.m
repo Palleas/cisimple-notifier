@@ -18,6 +18,9 @@ static NSString *kCISKeychainAccountName = @"default";
 
 @implementation PCAppDelegate {
     CISimple *cisimple;
+    BLYClient *bullyClient;
+    BLYChannel *buildChannel;
+    NSStatusItem *statusItem;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -28,31 +31,28 @@ static NSString *kCISKeychainAccountName = @"default";
                                                   error: &error];
 
     NSLog(@"error code : %ld", (long)error.code);
-    if ([error code] == errSecItemNotFound) {
-        NSAlert *activateAlert = [NSAlert alertWithMessageText: @"API key required"
-                                                 defaultButton: @"OK"
-                                               alternateButton: nil
-                                                   otherButton: nil
-                                     informativeTextWithFormat: @"Looks like it's your 1st time running cisimple. Please provide your API key."];
+    if (error != nil) {
+        if ([error code] == errSecItemNotFound) {
+            NSAlert *activateAlert = [NSAlert alertWithMessageText: @"API key required"
+                                                     defaultButton: @"OK"
+                                                   alternateButton: nil
+                                                       otherButton: nil
+                                         informativeTextWithFormat: @"Looks like it's your 1st time running cisimple. Please provide your API key."];
 
-        [self presentPreferencesWindow];
-        [activateAlert beginSheetModalForWindow: self.preferencesWindow
-                                  modalDelegate: nil
-                                 didEndSelector: nil
-                                    contextInfo: nil];
+            [self presentPreferencesWindow];
+            [activateAlert beginSheetModalForWindow: self.preferencesWindow
+                                      modalDelegate: nil
+                                     didEndSelector: nil
+                                        contextInfo: nil];
+        } else {
+            [NSAlert alertWithError: error];
+        }
+    } else {
+        [self useApiKey: apiKey];
     }
     
-    bullyClient = [[BLYClient alloc] initWithAppKey: @"01dfb12713a82c1e7088" delegate:self];
-
-    cisimple = [[CISimple alloc] initWithKey: @"uox72jjk6867q59vlj1cbu4qbf63av2yw"];
-    [cisimple retrieveChannelInfo:^(id response, NSError *error) {
-        if (nil == error) {
-            NSLog(@"Channel name is = %@", response);
-            [self connectToChannel: response];
-        } else {
-            NSLog(@"Got an error retrieving channel : %@", error.localizedDescription);
-        }
-    }];
+    bullyClient = [[BLYClient alloc] initWithAppKey: @"01dfb12713a82c1e7088"
+                                           delegate: self];
 }
 
 - (void)connectToChannel:(NSString *)channel
@@ -94,10 +94,50 @@ static NSString *kCISKeychainAccountName = @"default";
     [SSKeychain setPassword: apiKey
                  forService: kCISKeychainServiceName
                     account: kCISKeychainAccountName];
+    
+    [self useApiKey: apiKey];
 }
 
+- (void)useApiKey:(NSString *)key
+{
+    if (nil != cisimple) {
+        cisimple = nil;
+    }
+    
+    if (nil != bullyClient || nil != buildChannel) {
+        [bullyClient disconnect];
+        bullyClient = nil;
+        buildChannel = nil;
+    }
+    
+    cisimple = [[CISimple alloc] initWithKey: key];
+    [cisimple retrieveChannelInfo:^(id response, NSError *error) {
+        if (nil == error) {
+            NSLog(@"Channel name is = %@", response);
+            [self connectToChannel: response];
+        } else {
+            NSLog(@"Got an error retrieving channel : %@", error.localizedDescription);
+        }
+    }];
+}
 
+- (IBAction)didPressShowPreferencesWindow:(id)sender
+{
+    [self presentPreferencesWindow];
+}
 
+- (IBAction)didPressQuit:(id)sender
+{
+    NSLog(@"Terminate cisimple");
+    [[NSApplication sharedApplication] terminate: nil];
+}
 
+- (void)awakeFromNib
+{
+    statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength: NSVariableStatusItemLength];
+    statusItem.menu = self.statusBarMenu;
+    statusItem.highlightMode = YES;
+    statusItem.image = [NSImage imageNamed: @"icon_16x16"];
+}
 
 @end
