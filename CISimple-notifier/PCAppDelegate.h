@@ -11,15 +11,12 @@
 #import "CISBuild.h"
 
 @interface PCAppDelegate : NSObject <NSWindowDelegate, NSApplicationDelegate, BLYClientDelegate>
-{
-    BLYClient *bullyClient;
-    BLYChannel *buildChannel;
-    NSStatusItem *statusItem;
-    NSURL *buildsURL;
-}
 
 @property (nonatomic, strong) IBOutlet NSWindow *preferencesWindow;
+@property (nonatomic, strong) IBOutlet NSMenu *statusBarMenu;
 
 - (IBAction)didEnterAPIKey:(id)sender;
+- (IBAction)didPressShowPreferencesWindow:(id)sender;
+- (IBAction)didPressQuit:(id)sender;
 
 @end
