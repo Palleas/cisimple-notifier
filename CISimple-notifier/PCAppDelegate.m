@@ -15,7 +15,8 @@
 #import "NSHTTPError.h"
 
 static NSString *kCISKeychainServiceName = @"cisimple";
-static NSString *kCISKeychainAccountName = @"default";
+static NSString *kCISKeychainTokenAccountName = @"token";
+static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
 
 @implementation PCAppDelegate {
     CISimple *cisimple;
@@ -28,12 +29,14 @@ static NSString *kCISKeychainAccountName = @"default";
 {
     NSError *error = nil;
     NSString *apiKey = [SSKeychain passwordForService: kCISKeychainServiceName
-                                                account: kCISKeychainAccountName
+                                                account: kCISKeychainTokenAccountName
                                                   error: &error];
-
+    bullyClient = [[BLYClient alloc] initWithAppKey: @"01dfb12713a82c1e7088"
+                                           delegate: self];
+    
     NSLog(@"error code : %ld", (long)error.code);
-    if (error != nil) {
-        if ([error code] == errSecItemNotFound) {
+    if (error != nil || apiKey == nil) {
+        if ([error code] == errSecItemNotFound || apiKey == nil) {
             NSAlert *activateAlert = [NSAlert alertWithMessageText: @"API key required"
                                                      defaultButton: @"OK"
                                                    alternateButton: nil
@@ -49,21 +52,25 @@ static NSString *kCISKeychainAccountName = @"default";
             [NSAlert alertWithError: error];
         }
     } else {
+        self.apiTokenField.stringValue = apiKey;
         [self useApiKey: apiKey];
     }
-    
-    bullyClient = [[BLYClient alloc] initWithAppKey: @"01dfb12713a82c1e7088"
-                                           delegate: self];
 }
 
 - (void)connectToChannel:(NSString *)channel
 {
+    NSLog(@"Connecting to channel");
+    
     buildChannel = [bullyClient subscribeToChannelWithName:channel authenticationBlock:^(BLYChannel *channel) {
+        NSLog(@"Authenticate ?");
         [cisimple retrieveAuthentificationForParameters: channel.authenticationParameters
-                                        completionBlock:^(id response, NSError *error) {
+                                        completionBlock: ^(id response, NSError *error) {
+                                            NSLog(@"Error %@", error.localizedDescription);
                                             [channel subscribeWithAuthentication: response];
                                         }];
     }];
+    
+    NSLog(@"Binding channel to build event");
     
     [buildChannel bindToEvent:kBuildUpdatedEventName block:^(id message) {
         NSLog(@"Received payload");
@@ -86,15 +93,15 @@ static NSString *kCISKeychainAccountName = @"default";
     [self.preferencesWindow makeKeyAndOrderFront: self];
 }
 
-- (void)didEnterAPIKey:(id)sender
+- (void)didEnterAPIToken:(id)sender
 {
     // Retrieve entered value
-    NSString *apiKey = [sender stringValue];
+    NSString *apiKey = self.apiTokenField.stringValue;
     NSLog(@"Entered api key = %@", apiKey);
     
     [SSKeychain setPassword: apiKey
                  forService: kCISKeychainServiceName
-                    account: kCISKeychainAccountName];
+                    account: kCISKeychainTokenAccountName];
     
     [self useApiKey: apiKey];
 }
@@ -105,45 +112,78 @@ static NSString *kCISKeychainAccountName = @"default";
         cisimple = nil;
     }
     
-    if (nil != bullyClient || nil != buildChannel) {
-        [bullyClient disconnect];
-        bullyClient = nil;
+    if (nil != buildChannel) {
         buildChannel = nil;
     }
     
-    cisimple = [[CISimple alloc] initWithKey: key];
-    [cisimple retrieveChannelInfo:^(id response, NSError *error) {
-        if (nil == error) {
-            NSLog(@"Channel name is = %@", response);
-            [self connectToChannel: response];
-        } else {
-            NSLog(@"Got an error retrieving channel : %@", error.localizedDescription);
-            
-            NSAlert *errorAlert;
-            // @todo better error handling ?
-            if (error.code == 401) {
-                errorAlert = [NSAlert alertWithMessageText: @"An error occured"
-                                defaultButton: @"Dismiss"
-                              alternateButton: nil
-                                  otherButton: nil
-                    informativeTextWithFormat: @"Unable to retrieve informations about your pusher channel (Access denied). Check your API token."];
+    cisimple = [[CISimple alloc] initWithToken: key];
+    
+    // kCISKeychainChannelAccountName
+    NSError *error;
+    NSString *channel = [SSKeychain passwordForService: kCISKeychainServiceName
+                                               account: kCISKeychainChannelAccountName
+                                                 error: &error];
+    
+    if (error.code == 0 && nil != channel) {
+        NSLog(@"Channel name is = %@", channel);
+        [self connectToChannel: channel];
+    } else {
+        [self presentProgressView:@"Retrieving pusher informations"];
+
+        [cisimple retrieveChannelInfo:^(id response, NSError *error) {
+            [NSApp endSheet: self.progressWindow];
+
+            if (nil == error) {
+                NSLog(@"Channel name is = %@", response);
+                [self.preferencesWindow orderOut: self];
+                [self connectToChannel: response];
+                [SSKeychain setPassword: response forService: kCISKeychainServiceName account:kCISKeychainChannelAccountName];
             } else {
-                errorAlert = [NSAlert alertWithMessageText: @"An error occured"
-                                             defaultButton: @"Dismiss"
-                                           alternateButton: nil
-                                               otherButton: nil
-                                 informativeTextWithFormat: @"An error occured when talking to cisimple. Try again later."];
-            }
+                NSLog(@"Got an error retrieving channel : %@", error.localizedDescription);
             
-            [self presentPreferencesWindow];
-            [errorAlert beginSheetModalForWindow: self.preferencesWindow
+                NSAlert *errorAlert;
+                // @todo better error handling ?
+                if (error.code == 401) {
+                    errorAlert = [NSAlert alertWithMessageText: @"An error occured"
+                                                 defaultButton: @"Dismiss"
+                                               alternateButton: nil
+                                                   otherButton: nil
+                                     informativeTextWithFormat: @"Unable to retrieve informations about your pusher channel (Access denied). Check your API token."];
+                } else {
+                    errorAlert = [NSAlert alertWithMessageText: @"An error occured"
+                                                 defaultButton: @"Dismiss"
+                                               alternateButton: nil
+                                                   otherButton: nil
+                                     informativeTextWithFormat: @"An error occured when talking to cisimple. Try again later."];
+                }
+            
+                [self presentPreferencesWindow];
+                [errorAlert beginSheetModalForWindow: self.preferencesWindow
                                    modalDelegate: nil
                                   didEndSelector: nil
                                      contextInfo: nil];
-        }
-    }];
+            }
+        }];
+    }
 }
 
+- (void)presentProgressView:(NSString *)message
+{
+    [self presentPreferencesWindow];
+    [self.preferencesWindow resignKeyWindow];
+    self.progressMessage.stringValue = message;
+
+    [NSApp beginSheet: self.progressWindow
+                                   modalForWindow: self.preferencesWindow
+                                    modalDelegate: self
+                                   didEndSelector: @selector(sheetDidEnd:returnCode:contextInfo:)
+                                      contextInfo: nil];
+}
+
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
+{
+    [sheet orderOut: self];
+}
 
 - (IBAction)didPressShowPreferencesWindow:(id)sender
 {
@@ -163,5 +203,19 @@ static NSString *kCISKeychainAccountName = @"default";
     statusItem.highlightMode = YES;
     statusItem.image = [NSImage imageNamed: @"icon_16x16"];
 }
+
+- (void)bullyClientDidConnect:(BLYClient *)client
+{
+    NSLog(@"Bully client did connect");
+}
+- (void)bullyClient:(BLYClient *)client didReceiveError:(NSError *)error
+{
+    NSLog(@"Bully client did receive error %@", error.localizedDescription);
+}
+- (void)bullyClientDidDisconnect:(BLYClient *)client
+{
+    NSLog(@"Bully client did disconnect");
+}
+
 
 @end
