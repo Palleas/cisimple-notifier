@@ -276,7 +276,7 @@
 		8224560E16C2E06D008A8FA1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = PC;
+				CLASSPREFIX = CIS;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Perfectly Cooked";
 			};
