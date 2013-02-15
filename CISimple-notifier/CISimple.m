@@ -8,6 +8,7 @@
 
 #import "CISimple.h"
 #import "SVHTTPRequest.h"
+#import "NSHTTPError.h"
 
 NSString * const kBuildUpdatedEventName = @"build-progress-updated";
 
@@ -33,8 +34,15 @@ NSString * const kBuildUpdatedEventName = @"build-progress-updated";
                   parameters:@{@"access_token" : self.key}
                   completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
                       NSLog(@"Retrieved response");
-                      
-                      if (nil == error) {
+
+                      if (urlResponse.statusCode != 200) {
+                          NSLog(@"Code wasn't 200 :( ");
+                          // @todo fix domain ?
+                          error = [NSHTTPError errorWithDomain: @"HTTP error"
+                                                      code: urlResponse.statusCode
+                                                  userInfo: nil];
+                          completion(nil, error);
+                      } else if (nil == error) {
                           completion(response[@"name"], nil);
                       } else {
                           completion(nil, error);
