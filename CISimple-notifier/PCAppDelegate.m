@@ -46,13 +46,13 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
             NSAlert *activateAlert = [NSAlert alertWithMessageText: @"API key required"
                                                      defaultButton: @"OK"
                                                    alternateButton: nil
-                                                       otherButton: nil
-                                         informativeTextWithFormat: @"Looks like it's your 1st time running cisimple. Please provide your API key."];
+                                                       otherButton: @"Visit cisimple"
+                                         informativeTextWithFormat: @"Looks like it's your 1st time running cisimple. Visit https://www.cisimple.com/account to find your API token."];
 
             [self presentPreferencesWindow];
             [activateAlert beginSheetModalForWindow: self.preferencesWindow
-                                      modalDelegate: nil
-                                     didEndSelector: nil
+                                      modalDelegate: self
+                                     didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
                                         contextInfo: nil];
         } else {
             [NSAlert alertWithError: error];
@@ -209,14 +209,27 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
           contextInfo: nil];
 }
 
+
+- (void) alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+    NSLog(@"Dismissed 'first launch' alert");
+    if (returnCode == NSAlertOtherReturn) {
+        NSLog(@"Pressed 'visit cisimple' => opening cisimple");
+        NSURL *cisimpleURL = [NSURL URLWithString: @"http://www.cisimple.com/account"];
+        [[NSWorkspace sharedWorkspace] openURL: cisimpleURL];
+    }
+}
+
 - (void)bullyClientDidConnect:(BLYClient *)client
 {
     NSLog(@"Bully client did connect");
 }
+
 - (void)bullyClient:(BLYClient *)client didReceiveError:(NSError *)error
 {
     NSLog(@"Bully client did receive error %@", error.localizedDescription);
 }
+
 - (void)bullyClientDidDisconnect:(BLYClient *)client
 {
     NSLog(@"Bully client did disconnect");
