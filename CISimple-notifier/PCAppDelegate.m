@@ -12,6 +12,7 @@
 #import "SVHTTPRequest.h"
 #import "NSUserNotification+Build.h"
 #import "SSKeychain.h"
+#import "NSHTTPError.h"
 
 static NSString *kCISKeychainServiceName = @"cisimple";
 static NSString *kCISKeychainAccountName = @"default";
@@ -117,9 +118,32 @@ static NSString *kCISKeychainAccountName = @"default";
             [self connectToChannel: response];
         } else {
             NSLog(@"Got an error retrieving channel : %@", error.localizedDescription);
+            
+            NSAlert *errorAlert;
+            // @todo better error handling ?
+            if (error.code == 401) {
+                errorAlert = [NSAlert alertWithMessageText: @"An error occured"
+                                defaultButton: @"Dismiss"
+                              alternateButton: nil
+                                  otherButton: nil
+                    informativeTextWithFormat: @"Unable to retrieve informations about your pusher channel (Access denied). Check your API token."];
+            } else {
+                errorAlert = [NSAlert alertWithMessageText: @"An error occured"
+                                             defaultButton: @"Dismiss"
+                                           alternateButton: nil
+                                               otherButton: nil
+                                 informativeTextWithFormat: @"An error occured when talking to cisimple. Try again later."];
+            }
+            
+            [self presentPreferencesWindow];
+            [errorAlert beginSheetModalForWindow: self.preferencesWindow
+                                   modalDelegate: nil
+                                  didEndSelector: nil
+                                     contextInfo: nil];
         }
     }];
 }
+
 
 - (IBAction)didPressShowPreferencesWindow:(id)sender
 {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8208878E16CE96210092353F /* NSHTTPError.m in Sources */ = {isa = PBXBuildFile; fileRef = 8208878D16CE96210092353F /* NSHTTPError.m */; };
 		8211E94716CAA56100E4ADFE /* build-payload-completed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8211E94616CAA56100E4ADFE /* build-payload-completed.json */; };
 		8211E94916CAA57600E4ADFE /* build-payload-finished.json in Resources */ = {isa = PBXBuildFile; fileRef = 8211E94816CAA57600E4ADFE /* build-payload-finished.json */; };
 		8211E94B16CAB3DC00E4ADFE /* build-payload-queued.json in Resources */ = {isa = PBXBuildFile; fileRef = 8211E94A16CAB3DB00E4ADFE /* build-payload-queued.json */; };
@@ -45,6 +46,8 @@
 /* Begin PBXFileReference section */
 		20BBD00E054A4BFD85B6C9FB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8EA89EE5A14EE48A4F8F0A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		8208878C16CE96210092353F /* NSHTTPError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSHTTPError.h; sourceTree = "<group>"; };
+		8208878D16CE96210092353F /* NSHTTPError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSHTTPError.m; sourceTree = "<group>"; };
 		8211E94616CAA56100E4ADFE /* build-payload-completed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "build-payload-completed.json"; sourceTree = "<group>"; };
 		8211E94816CAA57600E4ADFE /* build-payload-finished.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "build-payload-finished.json"; sourceTree = "<group>"; };
 		8211E94A16CAB3DB00E4ADFE /* build-payload-queued.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "build-payload-queued.json"; sourceTree = "<group>"; };
@@ -157,6 +160,8 @@
 				821DEE4716C8816200A2E7A7 /* CISimple.m */,
 				822E36B116CB2B1C009D0D93 /* NSUserNotification+Build.h */,
 				822E36B216CB2B1D009D0D93 /* NSUserNotification+Build.m */,
+				8208878C16CE96210092353F /* NSHTTPError.h */,
+				8208878D16CE96210092353F /* NSHTTPError.m */,
 			);
 			path = "CISimple-notifier";
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				828F085016C34C2F00CF73B3 /* NSColor+CISimple.m in Sources */,
 				821DEE4816C8816200A2E7A7 /* CISimple.m in Sources */,
 				822E36B316CB2B1D009D0D93 /* NSUserNotification+Build.m in Sources */,
+				8208878E16CE96210092353F /* NSHTTPError.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
