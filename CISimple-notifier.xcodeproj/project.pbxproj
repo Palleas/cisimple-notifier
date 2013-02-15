@@ -26,6 +26,8 @@
 		822E36B316CB2B1D009D0D93 /* NSUserNotification+Build.m in Sources */ = {isa = PBXBuildFile; fileRef = 822E36B216CB2B1D009D0D93 /* NSUserNotification+Build.m */; };
 		823BF51416CD52DE004D99F1 /* icon_16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 823BF51316CD52DE004D99F1 /* icon_16x16.png */; };
 		823BF51616CD5322004D99F1 /* icon_32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 823BF51516CD5322004D99F1 /* icon_32x32.png */; };
+		8248B20C16CED2C5001909A1 /* CISProgressWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8248B20A16CED2C5001909A1 /* CISProgressWindowController.m */; };
+		8248B20D16CED2C5001909A1 /* CISProgressWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8248B20B16CED2C5001909A1 /* CISProgressWindow.xib */; };
 		828F084316C33A9000CF73B3 /* CISBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084216C33A8F00CF73B3 /* CISBuild.m */; };
 		828F085016C34C2F00CF73B3 /* NSColor+CISimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084F16C34C2F00CF73B3 /* NSColor+CISimple.m */; };
 		82F0681F16CA87A900056E53 /* build-payload-started.json in Resources */ = {isa = PBXBuildFile; fileRef = 82F0681E16CA87A900056E53 /* build-payload-started.json */; };
@@ -77,6 +79,9 @@
 		822E36B216CB2B1D009D0D93 /* NSUserNotification+Build.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserNotification+Build.m"; sourceTree = "<group>"; };
 		823BF51316CD52DE004D99F1 /* icon_16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_16x16.png; sourceTree = "<group>"; };
 		823BF51516CD5322004D99F1 /* icon_32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_32x32.png; sourceTree = "<group>"; };
+		8248B20916CED2C5001909A1 /* CISProgressWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CISProgressWindowController.h; sourceTree = "<group>"; };
+		8248B20A16CED2C5001909A1 /* CISProgressWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CISProgressWindowController.m; sourceTree = "<group>"; };
+		8248B20B16CED2C5001909A1 /* CISProgressWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CISProgressWindow.xib; sourceTree = "<group>"; };
 		828F084116C33A8F00CF73B3 /* CISBuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CISBuild.h; sourceTree = "<group>"; };
 		828F084216C33A8F00CF73B3 /* CISBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CISBuild.m; sourceTree = "<group>"; };
 		828F084E16C34C2F00CF73B3 /* NSColor+CISimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+CISimple.h"; sourceTree = "<group>"; };
@@ -162,6 +167,9 @@
 				822E36B216CB2B1D009D0D93 /* NSUserNotification+Build.m */,
 				8208878C16CE96210092353F /* NSHTTPError.h */,
 				8208878D16CE96210092353F /* NSHTTPError.m */,
+				8248B20916CED2C5001909A1 /* CISProgressWindowController.h */,
+				8248B20A16CED2C5001909A1 /* CISProgressWindowController.m */,
+				8248B20B16CED2C5001909A1 /* CISProgressWindow.xib */,
 			);
 			path = "CISimple-notifier";
 			sourceTree = "<group>";
@@ -313,6 +321,7 @@
 				8211E94D16CAB87B00E4ADFE /* cisimple-logo.icns in Resources */,
 				823BF51416CD52DE004D99F1 /* icon_16x16.png in Resources */,
 				823BF51616CD5322004D99F1 /* icon_32x32.png in Resources */,
+				8248B20D16CED2C5001909A1 /* CISProgressWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +378,7 @@
 				821DEE4816C8816200A2E7A7 /* CISimple.m in Sources */,
 				822E36B316CB2B1D009D0D93 /* NSUserNotification+Build.m in Sources */,
 				8208878E16CE96210092353F /* NSHTTPError.m in Sources */,
+				8248B20C16CED2C5001909A1 /* CISProgressWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

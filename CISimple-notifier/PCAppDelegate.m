@@ -13,6 +13,7 @@
 #import "NSUserNotification+Build.h"
 #import "SSKeychain.h"
 #import "NSHTTPError.h"
+#import "CISProgressWindowController.h"
 
 static NSString *kCISKeychainServiceName = @"cisimple";
 static NSString *kCISKeychainTokenAccountName = @"token";
@@ -23,10 +24,15 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
     BLYClient *bullyClient;
     BLYChannel *buildChannel;
     NSStatusItem *statusItem;
+
+    CISProgressWindowController *progressWindowController;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    // Bootstrap used items
+    progressWindowController = [[CISProgressWindowController alloc] init];
+
     NSError *error = nil;
     NSString *apiKey = [SSKeychain passwordForService: kCISKeychainServiceName
                                                 account: kCISKeychainTokenAccountName
@@ -131,7 +137,7 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
         [self presentProgressView:@"Retrieving pusher informations"];
 
         [cisimple retrieveChannelInfo:^(id response, NSError *error) {
-            [NSApp endSheet: self.progressWindow];
+            [NSApp endSheet: progressWindowController.window];
 
             if (nil == error) {
                 NSLog(@"Channel name is = %@", response);
@@ -167,19 +173,6 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
     }
 }
 
-- (void)presentProgressView:(NSString *)message
-{
-    [self presentPreferencesWindow];
-    [self.preferencesWindow resignKeyWindow];
-    self.progressMessage.stringValue = message;
-
-    [NSApp beginSheet: self.progressWindow
-                                   modalForWindow: self.preferencesWindow
-                                    modalDelegate: self
-                                   didEndSelector: @selector(sheetDidEnd:returnCode:contextInfo:)
-                                      contextInfo: nil];
-}
-
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 {
     [sheet orderOut: self];
@@ -202,6 +195,18 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
     statusItem.menu = self.statusBarMenu;
     statusItem.highlightMode = YES;
     statusItem.image = [NSImage imageNamed: @"icon_16x16"];
+}
+
+- (void)presentProgressView:(NSString *)message
+{
+    [self presentPreferencesWindow];
+    [progressWindowController setMessage: message];
+    
+    [NSApp beginSheet: [progressWindowController window]
+       modalForWindow: self.preferencesWindow
+        modalDelegate: self
+       didEndSelector: @selector(sheetDidEnd:returnCode:contextInfo:)
+          contextInfo: nil];
 }
 
 - (void)bullyClientDidConnect:(BLYClient *)client
