@@ -217,5 +217,4 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
     NSLog(@"Bully client did disconnect");
 }
 
-
 @end
