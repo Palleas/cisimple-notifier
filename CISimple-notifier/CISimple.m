@@ -14,13 +14,15 @@ NSString * const kBuildUpdatedEventName = @"build-progress-updated";
 
 @implementation CISimple
 
-@synthesize key = _key;
+@synthesize token = _token;
 
-- (id)initWithKey:(NSString *)key
+- (id)initWithToken:(NSString *)token
 {
+    NSAssert(token != nil, @"API token cannot be null");
+    
     self = [super init];
     if (self) {
-        _key = key;
+        _token = token;
     }
     
     return self;
@@ -29,9 +31,9 @@ NSString * const kBuildUpdatedEventName = @"build-progress-updated";
 - (void)retrieveChannelInfo:(CISCompletionHandler)completion;
 {
     NSAssert(completion != nil, @"Completion block must not be nil");
-    
+
     [[self sharedClient] GET: @"/user/channel"
-                  parameters:@{@"access_token" : self.key}
+                  parameters:@{@"access_token" : self.token}
                   completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
                       NSLog(@"Retrieved response");
 
@@ -55,7 +57,7 @@ NSString * const kBuildUpdatedEventName = @"build-progress-updated";
 {
     NSAssert(completion != nil, @"Completion block must not be nil");
 
-    NSString *authUrl = [@"/user/channel/auth?access_token=" stringByAppendingString: self.key];
+    NSString *authUrl = [@"/user/channel/auth?access_token=" stringByAppendingString: self.token];
     [[self sharedClient] POST: authUrl parameters: parameters completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
         if (nil == error) {
             completion(response, nil);
