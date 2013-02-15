@@ -14,14 +14,11 @@ typedef void (^CISCompletionHandler)(id response, NSError *error);
 
 @interface CISimple : NSObject
 
-@property (nonatomic, copy, readonly) NSString *key;
+@property (nonatomic, copy, readonly) NSString *token;
 
-- (id)initWithKey:(NSString *)key;
+- (id)initWithToken:(NSString *)token;
 
 - (void)retrieveChannelInfo:(CISCompletionHandler)completion;
 - (void)retrieveAuthentificationForParameters:(NSDictionary *)parameters completionBlock:(CISCompletionHandler)completion;
-
-- (void)retrieveAPIKey:(CISCompletionHandler)completion;
-- (void)saveAPIKey:(NSString *)key;
 
 @end
