@@ -16,12 +16,6 @@
 @property (nonatomic, strong) IBOutlet NSMenu *statusBarMenu;
 @property (nonatomic, strong) IBOutlet NSTextField *apiTokenField;
 
-// @todo move to dedicated window controller
-// (it may come usefull oneday)
-@property (nonatomic, strong) IBOutlet NSProgressIndicator *progressIndicator;
-@property (nonatomic, strong) IBOutlet NSWindow *progressWindow;
-@property (nonatomic, strong) IBOutlet NSTextField *progressMessage;
-
 - (IBAction)didEnterAPIToken:(id)sender;
 - (IBAction)didPressShowPreferencesWindow:(id)sender;
 - (IBAction)didPressQuit:(id)sender;
