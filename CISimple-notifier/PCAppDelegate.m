@@ -59,7 +59,7 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
         }
     } else {
         self.apiTokenField.stringValue = apiKey;
-        [self useApiKey: apiKey];
+        [self useApiToken: apiKey];
     }
 }
 
@@ -109,10 +109,10 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
                  forService: kCISKeychainServiceName
                     account: kCISKeychainTokenAccountName];
     
-    [self useApiKey: apiKey];
+    [self useApiToken: apiKey];
 }
 
-- (void)useApiKey:(NSString *)key
+- (void)useApiToken:(NSString *)key
 {
     if (nil != cisimple) {
         cisimple = nil;
