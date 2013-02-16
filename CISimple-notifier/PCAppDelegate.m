@@ -46,8 +46,8 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
             NSAlert *activateAlert = [NSAlert alertWithMessageText: @"API key required"
                                                      defaultButton: @"OK"
                                                    alternateButton: nil
-                                                       otherButton: @"Visit cisimple"
-                                         informativeTextWithFormat: @"Looks like it's your 1st time running cisimple. Visit https://www.cisimple.com/account to find your API token."];
+                                                       otherButton: nil
+                                         informativeTextWithFormat: @"It looks like this is your first time running the application. You'll need to enter your API Token to connect to cisimple."];
 
             [self presentPreferencesWindow];
             [activateAlert beginSheetModalForWindow: self.preferencesWindow
