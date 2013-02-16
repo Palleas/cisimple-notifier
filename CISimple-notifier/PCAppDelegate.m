@@ -150,11 +150,11 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
                 NSAlert *errorAlert;
                 // @todo better error handling ?
                 if (error.code == 401) {
-                    errorAlert = [NSAlert alertWithMessageText: @"An error occured"
+                    errorAlert = [NSAlert alertWithMessageText: @"Unable to connect"
                                                  defaultButton: @"Dismiss"
                                                alternateButton: nil
                                                    otherButton: nil
-                                     informativeTextWithFormat: @"Unable to retrieve informations about your pusher channel (Access denied). Check your API token."];
+                                     informativeTextWithFormat: @"We were unable to connect to cisimple with the specified API token. Please verify you have entered it correctly."];
                 } else {
                     errorAlert = [NSAlert alertWithMessageText: @"An error occured"
                                                  defaultButton: @"Dismiss"
