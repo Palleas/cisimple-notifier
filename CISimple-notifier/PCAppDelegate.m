@@ -32,7 +32,8 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
 {
     // Bootstrap used items
     progressWindowController = [[CISProgressWindowController alloc] init];
-
+    [progressWindowController window];
+    
     NSError *error = nil;
     NSString *apiKey = [SSKeychain passwordForService: kCISKeychainServiceName
                                                 account: kCISKeychainTokenAccountName
@@ -125,7 +126,6 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
     
     cisimple = [[CISimple alloc] initWithToken: key];
     
-    // kCISKeychainChannelAccountName
     NSError *error;
     NSString *channel = [SSKeychain passwordForService: kCISKeychainServiceName
                                                account: kCISKeychainChannelAccountName
