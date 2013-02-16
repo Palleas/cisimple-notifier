@@ -134,7 +134,7 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
         NSLog(@"Channel name is = %@", channel);
         [self connectToChannel: channel];
     } else {
-        [self presentProgressView:@"Retrieving pusher informations"];
+        [self presentProgressView:@"Connecting to cisimple..."];
 
         [cisimple retrieveChannelInfo:^(id response, NSError *error) {
             [NSApp endSheet: progressWindowController.window];
