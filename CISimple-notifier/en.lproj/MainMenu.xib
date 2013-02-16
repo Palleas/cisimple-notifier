@@ -1310,7 +1310,7 @@
 						<object class="NSTextField" id="505545779">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{17, 56}, {64, 17}}</string>
+							<string key="NSFrame">{{17, 56}, {68, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="143030713"/>
@@ -1319,7 +1319,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="808540118">
 								<int key="NSCellFlags">68157504</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">API token</string>
+								<string key="NSContents">API Token</string>
 								<object class="NSFont" key="NSSupport" id="476323383">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">13</double>
@@ -1351,10 +1351,10 @@
 						<object class="NSTextField" id="143030713">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{86, 51}, {374, 22}}</string>
+							<string key="NSFrame">{{90, 53}, {370, 22}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="833792160"/>
+							<reference key="NSNextKeyView" ref="292119955"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="527867436">
@@ -1408,7 +1408,7 @@
 							</object>
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						</object>
-						<object class="NSButton" id="833792160">
+						<object class="NSButton" id="292119955">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{278, 13}, {129, 32}}</string>
@@ -1417,13 +1417,13 @@
 							<reference key="NSNextKeyView" ref="1054229515"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="643733299">
+							<object class="NSButtonCell" key="NSCell" id="641841661">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">134217728</int>
 								<string key="NSContents">Get API Token</string>
 								<reference key="NSSupport" ref="476323383"/>
 								<string key="NSCellIdentifier">_NS:9</string>
-								<reference key="NSControlView" ref="833792160"/>
+								<reference key="NSControlView" ref="292119955"/>
 								<int key="NSButtonFlags">-2038284288</int>
 								<int key="NSButtonFlags2">129</int>
 								<string key="NSAlternateContents"/>
@@ -2222,7 +2222,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">didPressGetAPIToken:</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="833792160"/>
+						<reference key="destination" ref="292119955"/>
 					</object>
 					<int key="connectionID">612</int>
 				</object>
@@ -2752,9 +2752,9 @@
 						<reference key="object" ref="439893737"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="505545779"/>
-							<reference ref="143030713"/>
 							<reference ref="1054229515"/>
-							<reference ref="833792160"/>
+							<reference ref="292119955"/>
+							<reference ref="143030713"/>
 						</array>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -3291,16 +3291,16 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">610</int>
-						<reference key="object" ref="833792160"/>
+						<reference key="object" ref="292119955"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="643733299"/>
+							<reference ref="641841661"/>
 						</array>
 						<reference key="parent" ref="439893737"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">611</int>
-						<reference key="object" ref="643733299"/>
-						<reference key="parent" ref="833792160"/>
+						<reference key="object" ref="641841661"/>
+						<reference key="parent" ref="292119955"/>
 					</object>
 				</array>
 			</object>
