@@ -51,8 +51,8 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
 
             [self presentPreferencesWindow];
             [activateAlert beginSheetModalForWindow: self.preferencesWindow
-                                      modalDelegate: self
-                                     didEndSelector: @selector(alertDidEnd:returnCode:contextInfo:)
+                                      modalDelegate: nil
+                                     didEndSelector: nil
                                         contextInfo: nil];
         } else {
             [NSAlert alertWithError: error];
@@ -210,14 +210,11 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
 }
 
 
-- (void) alertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+- (IBAction)didPressGetAPIToken:(id)sender;
 {
-    NSLog(@"Dismissed 'first launch' alert");
-    if (returnCode == NSAlertOtherReturn) {
-        NSLog(@"Pressed 'visit cisimple' => opening cisimple");
-        NSURL *cisimpleURL = [NSURL URLWithString: @"http://www.cisimple.com/account"];
-        [[NSWorkspace sharedWorkspace] openURL: cisimpleURL];
-    }
+    NSLog(@"Opening cisimple");
+    NSURL *cisimpleURL = [NSURL URLWithString: @"http://www.cisimple.com/account"];
+    [[NSWorkspace sharedWorkspace] openURL: cisimpleURL];
 }
 
 - (void)bullyClientDidConnect:(BLYClient *)client
