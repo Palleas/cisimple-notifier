@@ -59,6 +59,7 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
         }
     } else {
         self.apiTokenField.stringValue = apiKey;
+        [self presentProgressView:@"Connecting to cisimple..."];
         [self useApiToken: apiKey];
     }
 }
