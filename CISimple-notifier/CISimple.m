@@ -15,14 +15,16 @@ NSString * const kBuildUpdatedEventName = @"build-progress-updated";
 @implementation CISimple
 
 @synthesize token = _token;
+@synthesize delegate = _delegate;
 
-- (id)initWithToken:(NSString *)token
+- (id)initWithToken:(NSString *)token delegate:(id<CISCisimpleDelegate>)delegate
 {
     NSAssert(token != nil, @"API token cannot be null");
     
     self = [super init];
     if (self) {
         _token = token;
+        _delegate = delegate;
     }
     
     return self;
@@ -31,7 +33,13 @@ NSString * const kBuildUpdatedEventName = @"build-progress-updated";
 - (void)retrieveChannelInfo:(CISCompletionHandler)completion;
 {
     NSAssert(completion != nil, @"Completion block must not be nil");
-
+    
+    NSLog(@"Retrieving channel informations");
+    if ([self.delegate respondsToSelector:@selector(cisimpleClientStartedFetchingChannel:)]) {
+        NSLog(@"Delegate respond to cisimpleClientStartedFetchingChannel : sending message");
+        [self.delegate cisimpleClientStartedFetchingChannel: self];
+    }
+    
     [[self sharedClient] GET: @"/user/channel"
                   parameters:@{@"access_token" : self.token}
                   completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
@@ -45,6 +53,12 @@ NSString * const kBuildUpdatedEventName = @"build-progress-updated";
                                                   userInfo: nil];
                           completion(nil, error);
                       } else if (nil == error) {
+                          NSLog(@"No error : retrieved channel name");
+                          if ([self.delegate respondsToSelector:@selector(cisimpleClientFetchedChannel:channel:)]) {
+                              NSLog(@"Delegate respond to cisimpleClientFetchedChannel:channel: : sending message");
+                              [self.delegate cisimpleClientFetchedChannel: self channel: response[@"name"]];
+                          }
+                          
                           completion(response[@"name"], nil);
                       } else {
                           completion(nil, error);

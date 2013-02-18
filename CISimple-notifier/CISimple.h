@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CISCisimpleDelegate.h"
 
 extern NSString * const kBuildUpdatedEventName;
 
@@ -15,8 +16,9 @@ typedef void (^CISCompletionHandler)(id response, NSError *error);
 @interface CISimple : NSObject
 
 @property (nonatomic, copy, readonly) NSString *token;
+@property (nonatomic, weak, readonly) id<CISCisimpleDelegate> delegate;
 
-- (id)initWithToken:(NSString *)token;
+- (id)initWithToken:(NSString *)token delegate:(id<CISCisimpleDelegate>)delegate;
 
 - (void)retrieveChannelInfo:(CISCompletionHandler)completion;
 - (void)retrieveAuthentificationForParameters:(NSDictionary *)parameters completionBlock:(CISCompletionHandler)completion;
