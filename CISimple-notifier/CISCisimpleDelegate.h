@@ -14,5 +14,6 @@
 
 - (void)cisimpleClientStartedFetchingChannel:(CISimple *)client;
 - (void)cisimpleClientFetchedChannel:(CISimple *)client channel:(NSString *)channel;
+- (void)cisimpleClient:(CISimple *)client didReceiveError:(NSError *)error;
 
 @end
