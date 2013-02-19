@@ -21,4 +21,5 @@
 - (IBAction)didPressShowPreferencesWindow:(id)sender;
 - (IBAction)didPressQuit:(id)sender;
 - (IBAction)didPressGetAPIToken:(id)sender;
+
 @end
