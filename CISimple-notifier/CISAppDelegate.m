@@ -38,6 +38,9 @@ static NSString *kCISKeychainTokenAccountName = @"token";
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     NSLog(@"Did finish launching");
+    
+    self.preferencesWindow.level = NSFloatingWindowLevel;
+    
     // Bootstrap used items (@todo move into interface builder ?)
     progressWindowController = [[CISProgressWindowController alloc] init];
     [progressWindowController window];
