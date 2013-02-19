@@ -141,36 +141,13 @@ static NSString *kCISKeychainTokenAccountName = @"token";
         if (nil == error) {
             NSLog(@"Channel name is = %@", response);
             [self connectToChannel: response];
-        } else {
-            NSLog(@"Got an error retrieving channel : %@", error.localizedDescription);
-            
-            NSAlert *errorAlert;
-            // @todo better error handling ?
-            if (error.code == 401) {
-                errorAlert = [NSAlert alertWithMessageText: @"Unable to connect"
-                                             defaultButton: @"Dismiss"
-                                           alternateButton: nil
-                                               otherButton: nil
-                                 informativeTextWithFormat: @"We were unable to connect to cisimple with the specified API token. Please verify you have entered it correctly."];
-            } else {
-                errorAlert = [NSAlert alertWithMessageText: @"An error occured"
-                                             defaultButton: @"Dismiss"
-                                           alternateButton: nil
-                                               otherButton: nil
-                                 informativeTextWithFormat: @"An error occured when talking to cisimple. Try again later."];
-            }
-            
-            [self presentPreferencesWindow];
-            [errorAlert beginSheetModalForWindow: self.preferencesWindow
-                                   modalDelegate: nil
-                                  didEndSelector: nil
-                                     contextInfo: nil];
         }
     }];
 }
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 {
+    NSLog(@"Ordering out : %@", sheet);
     [sheet orderOut: self];
 }
 
@@ -232,7 +209,7 @@ static NSString *kCISKeychainTokenAccountName = @"token";
     
     if (progressWindowController.window.isVisible) {
         NSLog(@"Progress window is visible -> removing progress view");
-        [progressWindowController.window orderOut: self];
+        [NSApp endSheet: progressWindowController.window];
         [self.preferencesWindow orderOut: self];
     } else {
         NSLog(@"Progress window is not visible -> nothing to do");
@@ -249,6 +226,40 @@ static NSString *kCISKeychainTokenAccountName = @"token";
     } else {
         NSLog(@"Preferences window is not visible -> not showing progress view");
     }
+}
+
+- (void)cisimpleClient:(CISimple *)client didReceiveError:(NSError *)error
+{
+    NSLog(@"Got an error : %@", error.localizedDescription);
+
+    NSAlert *errorSheet;
+    if (error.code == 401) {
+        errorSheet = [NSAlert alertWithMessageText: @"Unable to connect"
+                                     defaultButton: @"Dismiss"
+                                   alternateButton: nil
+                                       otherButton: nil
+                         informativeTextWithFormat: @"We were unable to connect to cisimple with the specified API token. Please verify you have entered it correctly."];
+    } else {
+        errorSheet = [NSAlert alertWithMessageText: @"An error occured"
+                                     defaultButton: @"Dismiss"
+                                   alternateButton: nil
+                                       otherButton: nil
+                         informativeTextWithFormat: @"An error occured when talking to cisimple. Try again later."];
+    }
+
+    NSLog(@"Presenting preferences window");
+    [self presentPreferencesWindow];
+    
+    // If the progress view is visible, removing it
+    if (progressWindowController.window.isVisible) {
+        NSLog(@"Progress window is visible -> ordering out");
+        [NSApp endSheet: progressWindowController.window];
+    }
+    
+    [errorSheet beginSheetModalForWindow: self.preferencesWindow
+                           modalDelegate: nil
+                          didEndSelector: nil
+                             contextInfo: nil];
 }
 
 #pragma mark bully

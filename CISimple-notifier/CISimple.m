@@ -44,15 +44,8 @@ NSString * const kBuildUpdatedEventName = @"build-progress-updated";
                   parameters:@{@"access_token" : self.token}
                   completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
                       NSLog(@"Retrieved response");
-
-                      if (urlResponse.statusCode != 200) {
-                          NSLog(@"Code wasn't 200 :( ");
-                          // @todo fix domain ?
-                          error = [NSHTTPError errorWithDomain: @"HTTP error"
-                                                      code: urlResponse.statusCode
-                                                  userInfo: nil];
-                          completion(nil, error);
-                      } else if (nil == error) {
+                      
+                      if (nil == error && urlResponse.statusCode == 200) {
                           NSLog(@"No error : retrieved channel name");
                           if ([self.delegate respondsToSelector:@selector(cisimpleClientFetchedChannel:channel:)]) {
                               NSLog(@"Delegate respond to cisimpleClientFetchedChannel:channel: : sending message");
@@ -60,8 +53,22 @@ NSString * const kBuildUpdatedEventName = @"build-progress-updated";
                           }
                           
                           completion(response[@"name"], nil);
-                      } else {
-                          completion(nil, error);
+                          return;
+                      }
+                    
+                      NSLog(@"Got an error or the response code wasn't 200");
+                      if ([self.delegate respondsToSelector:@selector(cisimpleClient:didReceiveError:)]) {
+                          NSLog(@"Delegate responds to selector cisimpleClient:didReceiveError:");
+                          if (urlResponse.statusCode != 200) {
+                              NSLog(@"Response code was not 200 : throwing HTTP Error");
+                              NSHTTPError *httpError = [NSHTTPError errorWithDomain: @"HTTP error"
+                                                              code: urlResponse.statusCode
+                                                          userInfo: nil];
+                              [self.delegate cisimpleClient:self didReceiveError: httpError];
+                          } else {
+                              NSLog(@"Throwing other error");
+                              [self.delegate cisimpleClient:self didReceiveError: error];
+                          }
                       }
                   }];
 }
