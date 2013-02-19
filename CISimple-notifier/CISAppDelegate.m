@@ -53,6 +53,8 @@ static NSString *kCISKeychainTokenAccountName = @"token";
         return;
     }
     
+    self.apiTokenField.stringValue = cisimpleToken;
+    
     [self useApiToken: cisimpleToken];
 }
 
@@ -261,6 +263,7 @@ static NSString *kCISKeychainTokenAccountName = @"token";
                           didEndSelector: nil
                              contextInfo: nil];
 }
+
 
 #pragma mark bully
 
