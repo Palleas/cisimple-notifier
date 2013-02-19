@@ -17,51 +17,72 @@
 
 static NSString *kCISKeychainServiceName = @"cisimple";
 static NSString *kCISKeychainTokenAccountName = @"token";
-static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
 
 @implementation CISAppDelegate {
-    CISimple *cisimple;
+    // Bully
     BLYClient *bullyClient;
     BLYChannel *buildChannel;
-    NSStatusItem *statusItem;
+    
+    // Cisimple client
+    CISimple *cisimple;
 
+    // Properties (channel name, token)
+    NSString *cisimpleBuildChannelName;
+    NSString *cisimpleToken;
+
+    // UI
+    NSStatusItem *statusItem;
     CISProgressWindowController *progressWindowController;
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Bootstrap used items
+    NSLog(@"Did finish launching");
+    // Bootstrap used items (@todo move into interface builder ?)
     progressWindowController = [[CISProgressWindowController alloc] init];
     [progressWindowController window];
     
-    NSError *error = nil;
-    NSString *apiKey = [SSKeychain passwordForService: kCISKeychainServiceName
-                                                account: kCISKeychainTokenAccountName
-                                                  error: &error];
+    // Bully
     bullyClient = [[BLYClient alloc] initWithAppKey: @"01dfb12713a82c1e7088"
                                            delegate: self];
     
-    NSLog(@"error code : %ld", (long)error.code);
-    if (error != nil || apiKey == nil) {
-        if ([error code] == errSecItemNotFound || apiKey == nil) {
-            NSAlert *activateAlert = [NSAlert alertWithMessageText: @"API key required"
-                                                     defaultButton: @"OK"
-                                                   alternateButton: nil
-                                                       otherButton: nil
-                                         informativeTextWithFormat: @"It looks like this is your first time running the application. You'll need to enter your API Token to connect to cisimple."];
+    if (nil == cisimpleToken) {
+        NSLog(@"We don't have the token : presenting first launch notice");
+        [self presentFirstLaunchNotice];
 
-            [self presentPreferencesWindow];
-            [activateAlert beginSheetModalForWindow: self.preferencesWindow
-                                      modalDelegate: nil
-                                     didEndSelector: nil
-                                        contextInfo: nil];
-        } else {
-            [NSAlert alertWithError: error];
-        }
-    } else {
-        self.apiTokenField.stringValue = apiKey;
-        [self useApiToken: apiKey];
+        return;
     }
+    
+    [self useApiToken: cisimpleToken];
+}
+
+- (void)applicationWillFinishLaunching:(NSNotification *)notification
+{
+    NSLog(@"Will finish launching");
+    NSError *error;
+    
+    // Retrieve cisimple token from keychain
+    cisimpleToken = [SSKeychain passwordForService: kCISKeychainServiceName
+                           account: kCISKeychainTokenAccountName
+                             error: &error];
+    if ([error code] == errSecItemNotFound) {
+        cisimpleToken = nil;
+    }
+}
+
+- (void)presentFirstLaunchNotice
+{
+    NSAlert *activateAlert = [NSAlert alertWithMessageText: @"API key required"
+                                             defaultButton: @"OK"
+                                           alternateButton: nil
+                                               otherButton: nil
+                                 informativeTextWithFormat: @"It looks like this is your first time running the application. You'll need to enter your API Token to connect to cisimple."];
+    
+    [self presentPreferencesWindow];
+    [activateAlert beginSheetModalForWindow: self.preferencesWindow
+                              modalDelegate: nil
+                             didEndSelector: nil
+                                contextInfo: nil];
 }
 
 - (void)connectToChannel:(NSString *)channel
@@ -100,72 +121,52 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
     [self.preferencesWindow makeKeyAndOrderFront: self];
 }
 
-- (void)didEnterAPIToken:(id)sender
-{
-    // Retrieve entered value
-    NSString *apiKey = self.apiTokenField.stringValue;
-    NSLog(@"Entered api key = %@", apiKey);
-    
-    [SSKeychain setPassword: apiKey
-                 forService: kCISKeychainServiceName
-                    account: kCISKeychainTokenAccountName];
-    
-    [self useApiToken: apiKey];
-}
-
 - (void)useApiToken:(NSString *)key
 {
     if (nil != cisimple) {
+        NSLog(@"Already have a cisimple account : setting nil");
         cisimple = nil;
     }
     
     if (nil != buildChannel) {
+        NSLog(@"Already have a build channel : unbinding event");
+        [buildChannel unbindEvent: kBuildUpdatedEventName];
         buildChannel = nil;
     }
     
+    NSLog(@"Creating cisimple client with key %@", key);
     cisimple = [[CISimple alloc] initWithToken: key delegate: self];
     
-    NSError *error;
-    NSString *channel = [SSKeychain passwordForService: kCISKeychainServiceName
-                                               account: kCISKeychainChannelAccountName
-                                                 error: &error];
-    
-    if (error.code == 0 && nil != channel) {
-        NSLog(@"Channel name is = %@", channel);
-        [self connectToChannel: channel];
-    } else {
-        [cisimple retrieveChannelInfo:^(id response, NSError *error) {
-            if (nil == error) {
-                NSLog(@"Channel name is = %@", response);
-                [self connectToChannel: response];
-                [SSKeychain setPassword: response forService: kCISKeychainServiceName account:kCISKeychainChannelAccountName];
+    [cisimple retrieveChannelInfo:^(id response, NSError *error) {
+        if (nil == error) {
+            NSLog(@"Channel name is = %@", response);
+            [self connectToChannel: response];
+        } else {
+            NSLog(@"Got an error retrieving channel : %@", error.localizedDescription);
+            
+            NSAlert *errorAlert;
+            // @todo better error handling ?
+            if (error.code == 401) {
+                errorAlert = [NSAlert alertWithMessageText: @"Unable to connect"
+                                             defaultButton: @"Dismiss"
+                                           alternateButton: nil
+                                               otherButton: nil
+                                 informativeTextWithFormat: @"We were unable to connect to cisimple with the specified API token. Please verify you have entered it correctly."];
             } else {
-                NSLog(@"Got an error retrieving channel : %@", error.localizedDescription);
+                errorAlert = [NSAlert alertWithMessageText: @"An error occured"
+                                             defaultButton: @"Dismiss"
+                                           alternateButton: nil
+                                               otherButton: nil
+                                 informativeTextWithFormat: @"An error occured when talking to cisimple. Try again later."];
+            }
             
-                NSAlert *errorAlert;
-                // @todo better error handling ?
-                if (error.code == 401) {
-                    errorAlert = [NSAlert alertWithMessageText: @"Unable to connect"
-                                                 defaultButton: @"Dismiss"
-                                               alternateButton: nil
-                                                   otherButton: nil
-                                     informativeTextWithFormat: @"We were unable to connect to cisimple with the specified API token. Please verify you have entered it correctly."];
-                } else {
-                    errorAlert = [NSAlert alertWithMessageText: @"An error occured"
-                                                 defaultButton: @"Dismiss"
-                                               alternateButton: nil
-                                                   otherButton: nil
-                                     informativeTextWithFormat: @"An error occured when talking to cisimple. Try again later."];
-                }
-            
-                [self presentPreferencesWindow];
-                [errorAlert beginSheetModalForWindow: self.preferencesWindow
+            [self presentPreferencesWindow];
+            [errorAlert beginSheetModalForWindow: self.preferencesWindow
                                    modalDelegate: nil
                                   didEndSelector: nil
                                      contextInfo: nil];
-            }
-        }];
-    }
+        }
+    }];
 }
 
 - (void)sheetDidEnd:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
@@ -212,10 +213,23 @@ static NSString *kCISKeychainChannelAccountName = @"pusherChannel";
     [[NSWorkspace sharedWorkspace] openURL: cisimpleURL];
 }
 
+- (void)didEnterAPIToken:(id)sender
+{
+    // Retrieve entered value
+    NSString *apiKey = self.apiTokenField.stringValue;
+    NSLog(@"Entered api key = %@", apiKey);
+
+    [self useApiToken: apiKey];
+}
+
 #pragma mark cisimple
 - (void)cisimpleClientFetchedChannel:(CISimple *)client channel:(NSString *)channel
 {
-    NSLog(@"Fetched channel : %@", channel);
+    NSLog(@"We fetched the channel name so the api key is correct : storing in keychain");
+    [SSKeychain setPassword: client.token
+                 forService: kCISKeychainServiceName
+                    account: kCISKeychainTokenAccountName];
+    
     if (progressWindowController.window.isVisible) {
         NSLog(@"Progress window is visible -> removing progress view");
         [progressWindowController.window orderOut: self];
