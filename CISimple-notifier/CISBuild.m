@@ -35,10 +35,6 @@ static NSString *kProjectNameKeyPath = @"job.friendly_name";
         } else if ([phaseCode isEqualToString: @"FINISHED"]) {
             self.phase = CISBuildPhaseFinished;
             self.success = [[dict valueForKeyPath: kBuildSuccessKeyPath] intValue] == 1;
-        } else {
-            [NSException exceptionWithName: @"invalid-build-phase"
-                                    reason: [NSString stringWithFormat: @"Invalid phase code %@", phaseCode]
-                                  userInfo: nil];
         }
     }
     
