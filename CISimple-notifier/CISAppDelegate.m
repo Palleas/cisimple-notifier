@@ -44,11 +44,7 @@ static NSString *kCISKeychainTokenAccountName = @"token";
     // Bootstrap used items (@todo move into interface builder ?)
     progressWindowController = [[CISProgressWindowController alloc] init];
     [progressWindowController window];
-    
-    // Bully
-    bullyClient = [[BLYClient alloc] initWithAppKey: @"01dfb12713a82c1e7088"
-                                           delegate: self];
-    
+
     if (nil == cisimpleToken) {
         NSLog(@"We don't have the token : presenting first launch notice");
         [self presentFirstLaunchNotice];
@@ -90,10 +86,16 @@ static NSString *kCISKeychainTokenAccountName = @"token";
                                 contextInfo: nil];
 }
 
-- (void)connectToChannel:(NSString *)channel
+- (void)connectToChannel:(NSString *)channel withAppId:(NSString *)appId
 {
     NSLog(@"Connecting to channel");
     
+    if (nil != bullyClient) {
+        [bullyClient disconnect];
+    }
+    
+    bullyClient = [[BLYClient alloc] initWithAppKey: appId delegate: self];
+
     buildChannel = [bullyClient subscribeToChannelWithName:channel authenticationBlock:^(BLYChannel *channel) {
         NSLog(@"Authenticate ?");
         [cisimple retrieveAuthentificationForParameters: channel.authenticationParameters
@@ -144,8 +146,11 @@ static NSString *kCISKeychainTokenAccountName = @"token";
     
     [cisimple retrieveChannelInfo:^(id response, NSError *error) {
         if (nil == error) {
-            NSLog(@"Channel name is = %@", response);
-            [self connectToChannel: response];
+            NSLog(@"response = %@", response);
+            NSLog(@"Pusher app id = %@", response[@"pusher_key"]);
+            NSLog(@"Channel name is = %@", response[@"name"]);
+            [self connectToChannel: response[@"name"]
+                         withAppId: response[@"pusher_key"]];
         }
     }];
 }

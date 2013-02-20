@@ -52,7 +52,7 @@ NSString * const kBuildUpdatedEventName = @"build-progress-updated";
                               [self.delegate cisimpleClientFetchedChannel: self channel: response[@"name"]];
                           }
                           
-                          completion(response[@"name"], nil);
+                          completion(response, nil);
                           return;
                       }
                     
