@@ -10,4 +10,6 @@
 
 @interface CISimple_notifierTests : SenTestCase
 
+- (NSDictionary *)loadPayload:(NSString *)name;
+
 @end

@@ -7,21 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8208878E16CE96210092353F /* NSHTTPError.m in Sources */ = {isa = PBXBuildFile; fileRef = 8208878D16CE96210092353F /* NSHTTPError.m */; };
+		8211E94716CAA56100E4ADFE /* build-payload-completed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8211E94616CAA56100E4ADFE /* build-payload-completed.json */; };
+		8211E94916CAA57600E4ADFE /* build-payload-finished.json in Resources */ = {isa = PBXBuildFile; fileRef = 8211E94816CAA57600E4ADFE /* build-payload-finished.json */; };
+		8211E94B16CAB3DC00E4ADFE /* build-payload-queued.json in Resources */ = {isa = PBXBuildFile; fileRef = 8211E94A16CAB3DB00E4ADFE /* build-payload-queued.json */; };
+		8211E94D16CAB87B00E4ADFE /* cisimple-logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8211E94C16CAB87B00E4ADFE /* cisimple-logo.icns */; };
+		821DEE4816C8816200A2E7A7 /* CISimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 821DEE4716C8816200A2E7A7 /* CISimple.m */; };
 		8224561A16C2E06D008A8FA1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224561916C2E06D008A8FA1 /* Cocoa.framework */; };
 		8224562416C2E06D008A8FA1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8224562216C2E06D008A8FA1 /* InfoPlist.strings */; };
 		8224562616C2E06D008A8FA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8224562516C2E06D008A8FA1 /* main.m */; };
 		8224562A16C2E06E008A8FA1 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8224562816C2E06E008A8FA1 /* Credits.rtf */; };
-		8224562D16C2E06E008A8FA1 /* PCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8224562C16C2E06E008A8FA1 /* PCAppDelegate.m */; };
+		8224562D16C2E06E008A8FA1 /* CISAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8224562C16C2E06E008A8FA1 /* CISAppDelegate.m */; };
 		8224563016C2E06E008A8FA1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8224562E16C2E06E008A8FA1 /* MainMenu.xib */; };
 		8224563816C2E06E008A8FA1 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224563716C2E06E008A8FA1 /* SenTestingKit.framework */; };
 		8224563916C2E06E008A8FA1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224561916C2E06D008A8FA1 /* Cocoa.framework */; };
 		8224564116C2E06F008A8FA1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8224563F16C2E06F008A8FA1 /* InfoPlist.strings */; };
 		8224564416C2E06F008A8FA1 /* CISimple_notifierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8224564316C2E06F008A8FA1 /* CISimple_notifierTests.m */; };
-		828F083816C32C3C00CF73B3 /* BuildView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 828F083716C32C3C00CF73B3 /* BuildView.xib */; };
-		828F083B16C32C5F00CF73B3 /* PCBuildViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F083A16C32C5F00CF73B3 /* PCBuildViewItem.m */; };
-		828F083E16C3331D00CF73B3 /* PCBuildView.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F083D16C3331D00CF73B3 /* PCBuildView.m */; };
-		828F084316C33A9000CF73B3 /* PCBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084216C33A8F00CF73B3 /* PCBuild.m */; };
+		822E36B316CB2B1D009D0D93 /* NSUserNotification+Build.m in Sources */ = {isa = PBXBuildFile; fileRef = 822E36B216CB2B1D009D0D93 /* NSUserNotification+Build.m */; };
+		823BF51416CD52DE004D99F1 /* icon_16x16.png in Resources */ = {isa = PBXBuildFile; fileRef = 823BF51316CD52DE004D99F1 /* icon_16x16.png */; };
+		823BF51616CD5322004D99F1 /* icon_32x32.png in Resources */ = {isa = PBXBuildFile; fileRef = 823BF51516CD5322004D99F1 /* icon_32x32.png */; };
+		8248B20C16CED2C5001909A1 /* CISProgressWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8248B20A16CED2C5001909A1 /* CISProgressWindowController.m */; };
+		8248B20D16CED2C5001909A1 /* CISProgressWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8248B20B16CED2C5001909A1 /* CISProgressWindow.xib */; };
+		828F084316C33A9000CF73B3 /* CISBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084216C33A8F00CF73B3 /* CISBuild.m */; };
 		828F085016C34C2F00CF73B3 /* NSColor+CISimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084F16C34C2F00CF73B3 /* NSColor+CISimple.m */; };
+		82F0681F16CA87A900056E53 /* build-payload-started.json in Resources */ = {isa = PBXBuildFile; fileRef = 82F0681E16CA87A900056E53 /* build-payload-started.json */; };
+		82F0682016CA8E9000056E53 /* build-payload-started.json in Resources */ = {isa = PBXBuildFile; fileRef = 82F0681E16CA87A900056E53 /* build-payload-started.json */; };
 		94A19E7F8B8B43D7A4FB1622 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BBD00E054A4BFD85B6C9FB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +48,15 @@
 /* Begin PBXFileReference section */
 		20BBD00E054A4BFD85B6C9FB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B8EA89EE5A14EE48A4F8F0A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		8224561616C2E06D008A8FA1 /* CISimple-notifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CISimple-notifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8208878C16CE96210092353F /* NSHTTPError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSHTTPError.h; sourceTree = "<group>"; };
+		8208878D16CE96210092353F /* NSHTTPError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSHTTPError.m; sourceTree = "<group>"; };
+		8211E94616CAA56100E4ADFE /* build-payload-completed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "build-payload-completed.json"; sourceTree = "<group>"; };
+		8211E94816CAA57600E4ADFE /* build-payload-finished.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "build-payload-finished.json"; sourceTree = "<group>"; };
+		8211E94A16CAB3DB00E4ADFE /* build-payload-queued.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "build-payload-queued.json"; sourceTree = "<group>"; };
+		8211E94C16CAB87B00E4ADFE /* cisimple-logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "cisimple-logo.icns"; path = "../cisimple-logo.icns"; sourceTree = "<group>"; };
+		821DEE4616C8816200A2E7A7 /* CISimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CISimple.h; sourceTree = "<group>"; };
+		821DEE4716C8816200A2E7A7 /* CISimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CISimple.m; sourceTree = "<group>"; };
+		8224561616C2E06D008A8FA1 /* cisimple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cisimple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8224561916C2E06D008A8FA1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		8224561C16C2E06D008A8FA1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		8224561D16C2E06D008A8FA1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -48,8 +66,8 @@
 		8224562516C2E06D008A8FA1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8224562716C2E06E008A8FA1 /* CISimple-notifier-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CISimple-notifier-Prefix.pch"; sourceTree = "<group>"; };
 		8224562916C2E06E008A8FA1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		8224562B16C2E06E008A8FA1 /* PCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCAppDelegate.h; sourceTree = "<group>"; };
-		8224562C16C2E06E008A8FA1 /* PCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCAppDelegate.m; sourceTree = "<group>"; };
+		8224562B16C2E06E008A8FA1 /* CISAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CISAppDelegate.h; sourceTree = "<group>"; };
+		8224562C16C2E06E008A8FA1 /* CISAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CISAppDelegate.m; sourceTree = "<group>"; };
 		8224562F16C2E06E008A8FA1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8224563616C2E06E008A8FA1 /* CISimple-notifierTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CISimple-notifierTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8224563716C2E06E008A8FA1 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -57,15 +75,19 @@
 		8224564016C2E06F008A8FA1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8224564216C2E06F008A8FA1 /* CISimple_notifierTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CISimple_notifierTests.h; sourceTree = "<group>"; };
 		8224564316C2E06F008A8FA1 /* CISimple_notifierTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CISimple_notifierTests.m; sourceTree = "<group>"; };
-		828F083716C32C3C00CF73B3 /* BuildView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuildView.xib; sourceTree = "<group>"; };
-		828F083916C32C5F00CF73B3 /* PCBuildViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBuildViewItem.h; sourceTree = "<group>"; };
-		828F083A16C32C5F00CF73B3 /* PCBuildViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBuildViewItem.m; sourceTree = "<group>"; };
-		828F083C16C3331D00CF73B3 /* PCBuildView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBuildView.h; sourceTree = "<group>"; };
-		828F083D16C3331D00CF73B3 /* PCBuildView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBuildView.m; sourceTree = "<group>"; };
-		828F084116C33A8F00CF73B3 /* PCBuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCBuild.h; sourceTree = "<group>"; };
-		828F084216C33A8F00CF73B3 /* PCBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCBuild.m; sourceTree = "<group>"; };
+		822E36B116CB2B1C009D0D93 /* NSUserNotification+Build.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserNotification+Build.h"; sourceTree = "<group>"; };
+		822E36B216CB2B1D009D0D93 /* NSUserNotification+Build.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserNotification+Build.m"; sourceTree = "<group>"; };
+		823BF51316CD52DE004D99F1 /* icon_16x16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_16x16.png; sourceTree = "<group>"; };
+		823BF51516CD5322004D99F1 /* icon_32x32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_32x32.png; sourceTree = "<group>"; };
+		8248B20916CED2C5001909A1 /* CISProgressWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CISProgressWindowController.h; sourceTree = "<group>"; };
+		8248B20A16CED2C5001909A1 /* CISProgressWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CISProgressWindowController.m; sourceTree = "<group>"; };
+		8248B20B16CED2C5001909A1 /* CISProgressWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CISProgressWindow.xib; sourceTree = "<group>"; };
+		828F084116C33A8F00CF73B3 /* CISBuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CISBuild.h; sourceTree = "<group>"; };
+		828F084216C33A8F00CF73B3 /* CISBuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CISBuild.m; sourceTree = "<group>"; };
 		828F084E16C34C2F00CF73B3 /* NSColor+CISimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+CISimple.h"; sourceTree = "<group>"; };
 		828F084F16C34C2F00CF73B3 /* NSColor+CISimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+CISimple.m"; sourceTree = "<group>"; };
+		82C4DB7416D2A4C500B12F5F /* CISCisimpleDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CISCisimpleDelegate.h; sourceTree = "<group>"; };
+		82F0681E16CA87A900056E53 /* build-payload-started.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "build-payload-started.json"; path = "CISimple-notifierTests/build-payload-started.json"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +126,7 @@
 		8224561716C2E06D008A8FA1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8224561616C2E06D008A8FA1 /* CISimple-notifier.app */,
+				8224561616C2E06D008A8FA1 /* cisimple.app */,
 				8224563616C2E06E008A8FA1 /* CISimple-notifierTests.octest */,
 			);
 			name = Products;
@@ -134,13 +156,22 @@
 		8224561F16C2E06D008A8FA1 /* CISimple-notifier */ = {
 			isa = PBXGroup;
 			children = (
-				8224562B16C2E06E008A8FA1 /* PCAppDelegate.h */,
-				8224562C16C2E06E008A8FA1 /* PCAppDelegate.m */,
+				8224562B16C2E06E008A8FA1 /* CISAppDelegate.h */,
+				8224562C16C2E06E008A8FA1 /* CISAppDelegate.m */,
 				828F083F16C33A4D00CF73B3 /* Resources */,
 				8224562016C2E06D008A8FA1 /* Supporting Files */,
-				828F084016C33A6400CF73B3 /* Views */,
 				82E0691D16C497C900052174 /* Model */,
 				82E0691E16C497D700052174 /* Extensions */,
+				821DEE4616C8816200A2E7A7 /* CISimple.h */,
+				821DEE4716C8816200A2E7A7 /* CISimple.m */,
+				822E36B116CB2B1C009D0D93 /* NSUserNotification+Build.h */,
+				822E36B216CB2B1D009D0D93 /* NSUserNotification+Build.m */,
+				8208878C16CE96210092353F /* NSHTTPError.h */,
+				8208878D16CE96210092353F /* NSHTTPError.m */,
+				8248B20916CED2C5001909A1 /* CISProgressWindowController.h */,
+				8248B20A16CED2C5001909A1 /* CISProgressWindowController.m */,
+				8248B20B16CED2C5001909A1 /* CISProgressWindow.xib */,
+				82C4DB7416D2A4C500B12F5F /* CISCisimpleDelegate.h */,
 			);
 			path = "CISimple-notifier";
 			sourceTree = "<group>";
@@ -148,6 +179,10 @@
 		8224562016C2E06D008A8FA1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8211E94A16CAB3DB00E4ADFE /* build-payload-queued.json */,
+				82F0681E16CA87A900056E53 /* build-payload-started.json */,
+				8211E94616CAA56100E4ADFE /* build-payload-completed.json */,
+				8211E94816CAA57600E4ADFE /* build-payload-finished.json */,
 				8224562116C2E06D008A8FA1 /* CISimple-notifier-Info.plist */,
 				8224562216C2E06D008A8FA1 /* InfoPlist.strings */,
 				8224562516C2E06D008A8FA1 /* main.m */,
@@ -179,28 +214,19 @@
 		828F083F16C33A4D00CF73B3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8211E94C16CAB87B00E4ADFE /* cisimple-logo.icns */,
+				823BF51516CD5322004D99F1 /* icon_32x32.png */,
+				823BF51316CD52DE004D99F1 /* icon_16x16.png */,
 				8224562E16C2E06E008A8FA1 /* MainMenu.xib */,
-				828F083716C32C3C00CF73B3 /* BuildView.xib */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
-		};
-		828F084016C33A6400CF73B3 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				828F083916C32C5F00CF73B3 /* PCBuildViewItem.h */,
-				828F083A16C32C5F00CF73B3 /* PCBuildViewItem.m */,
-				828F083C16C3331D00CF73B3 /* PCBuildView.h */,
-				828F083D16C3331D00CF73B3 /* PCBuildView.m */,
-			);
-			name = Views;
 			sourceTree = "<group>";
 		};
 		82E0691D16C497C900052174 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				828F084116C33A8F00CF73B3 /* PCBuild.h */,
-				828F084216C33A8F00CF73B3 /* PCBuild.m */,
+				828F084116C33A8F00CF73B3 /* CISBuild.h */,
+				828F084216C33A8F00CF73B3 /* CISBuild.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -232,7 +258,7 @@
 			);
 			name = "CISimple-notifier";
 			productName = "CISimple-notifier";
-			productReference = 8224561616C2E06D008A8FA1 /* CISimple-notifier.app */;
+			productReference = 8224561616C2E06D008A8FA1 /* cisimple.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8224563516C2E06E008A8FA1 /* CISimple-notifierTests */ = {
@@ -260,7 +286,7 @@
 		8224560E16C2E06D008A8FA1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = PC;
+				CLASSPREFIX = CIS;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Perfectly Cooked";
 			};
@@ -287,10 +313,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82F0682016CA8E9000056E53 /* build-payload-started.json in Resources */,
 				8224562416C2E06D008A8FA1 /* InfoPlist.strings in Resources */,
 				8224562A16C2E06E008A8FA1 /* Credits.rtf in Resources */,
 				8224563016C2E06E008A8FA1 /* MainMenu.xib in Resources */,
-				828F083816C32C3C00CF73B3 /* BuildView.xib in Resources */,
+				8211E94716CAA56100E4ADFE /* build-payload-completed.json in Resources */,
+				8211E94916CAA57600E4ADFE /* build-payload-finished.json in Resources */,
+				8211E94B16CAB3DC00E4ADFE /* build-payload-queued.json in Resources */,
+				8211E94D16CAB87B00E4ADFE /* cisimple-logo.icns in Resources */,
+				823BF51416CD52DE004D99F1 /* icon_16x16.png in Resources */,
+				823BF51616CD5322004D99F1 /* icon_32x32.png in Resources */,
+				8248B20D16CED2C5001909A1 /* CISProgressWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8224564116C2E06F008A8FA1 /* InfoPlist.strings in Resources */,
+				82F0681F16CA87A900056E53 /* build-payload-started.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,11 +374,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8224562616C2E06D008A8FA1 /* main.m in Sources */,
-				8224562D16C2E06E008A8FA1 /* PCAppDelegate.m in Sources */,
-				828F083B16C32C5F00CF73B3 /* PCBuildViewItem.m in Sources */,
-				828F083E16C3331D00CF73B3 /* PCBuildView.m in Sources */,
-				828F084316C33A9000CF73B3 /* PCBuild.m in Sources */,
+				8224562D16C2E06E008A8FA1 /* CISAppDelegate.m in Sources */,
+				828F084316C33A9000CF73B3 /* CISBuild.m in Sources */,
 				828F085016C34C2F00CF73B3 /* NSColor+CISimple.m in Sources */,
+				821DEE4816C8816200A2E7A7 /* CISimple.m in Sources */,
+				822E36B316CB2B1D009D0D93 /* NSUserNotification+Build.m in Sources */,
+				8208878E16CE96210092353F /* NSHTTPError.m in Sources */,
+				8248B20C16CED2C5001909A1 /* CISProgressWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,8 +504,9 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CISimple-notifier/CISimple-notifier-Prefix.pch";
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
 				INFOPLIST_FILE = "CISimple-notifier/CISimple-notifier-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = cisimple;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -481,8 +518,9 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CISimple-notifier/CISimple-notifier-Prefix.pch";
+				GCC_WARN_CHECK_SWITCH_STATEMENTS = NO;
 				INFOPLIST_FILE = "CISimple-notifier/CISimple-notifier-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = cisimple;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
