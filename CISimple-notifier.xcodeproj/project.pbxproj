@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8208878E16CE96210092353F /* NSHTTPError.m in Sources */ = {isa = PBXBuildFile; fileRef = 8208878D16CE96210092353F /* NSHTTPError.m */; };
-		8211E94716CAA56100E4ADFE /* build-payload-completed.json in Resources */ = {isa = PBXBuildFile; fileRef = 8211E94616CAA56100E4ADFE /* build-payload-completed.json */; };
-		8211E94916CAA57600E4ADFE /* build-payload-finished.json in Resources */ = {isa = PBXBuildFile; fileRef = 8211E94816CAA57600E4ADFE /* build-payload-finished.json */; };
-		8211E94B16CAB3DC00E4ADFE /* build-payload-queued.json in Resources */ = {isa = PBXBuildFile; fileRef = 8211E94A16CAB3DB00E4ADFE /* build-payload-queued.json */; };
 		8211E94D16CAB87B00E4ADFE /* cisimple-logo.icns in Resources */ = {isa = PBXBuildFile; fileRef = 8211E94C16CAB87B00E4ADFE /* cisimple-logo.icns */; };
 		821DEE4816C8816200A2E7A7 /* CISimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 821DEE4716C8816200A2E7A7 /* CISimple.m */; };
 		8224561A16C2E06D008A8FA1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8224561916C2E06D008A8FA1 /* Cocoa.framework */; };
@@ -30,8 +27,6 @@
 		8248B20D16CED2C5001909A1 /* CISProgressWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8248B20B16CED2C5001909A1 /* CISProgressWindow.xib */; };
 		828F084316C33A9000CF73B3 /* CISBuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084216C33A8F00CF73B3 /* CISBuild.m */; };
 		828F085016C34C2F00CF73B3 /* NSColor+CISimple.m in Sources */ = {isa = PBXBuildFile; fileRef = 828F084F16C34C2F00CF73B3 /* NSColor+CISimple.m */; };
-		82F0681F16CA87A900056E53 /* build-payload-started.json in Resources */ = {isa = PBXBuildFile; fileRef = 82F0681E16CA87A900056E53 /* build-payload-started.json */; };
-		82F0682016CA8E9000056E53 /* build-payload-started.json in Resources */ = {isa = PBXBuildFile; fileRef = 82F0681E16CA87A900056E53 /* build-payload-started.json */; };
 		94A19E7F8B8B43D7A4FB1622 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BBD00E054A4BFD85B6C9FB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -50,9 +45,6 @@
 		4B8EA89EE5A14EE48A4F8F0A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		8208878C16CE96210092353F /* NSHTTPError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSHTTPError.h; sourceTree = "<group>"; };
 		8208878D16CE96210092353F /* NSHTTPError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSHTTPError.m; sourceTree = "<group>"; };
-		8211E94616CAA56100E4ADFE /* build-payload-completed.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "build-payload-completed.json"; sourceTree = "<group>"; };
-		8211E94816CAA57600E4ADFE /* build-payload-finished.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "build-payload-finished.json"; sourceTree = "<group>"; };
-		8211E94A16CAB3DB00E4ADFE /* build-payload-queued.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "build-payload-queued.json"; sourceTree = "<group>"; };
 		8211E94C16CAB87B00E4ADFE /* cisimple-logo.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "cisimple-logo.icns"; path = "../cisimple-logo.icns"; sourceTree = "<group>"; };
 		821DEE4616C8816200A2E7A7 /* CISimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CISimple.h; sourceTree = "<group>"; };
 		821DEE4716C8816200A2E7A7 /* CISimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CISimple.m; sourceTree = "<group>"; };
@@ -87,7 +79,6 @@
 		828F084E16C34C2F00CF73B3 /* NSColor+CISimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+CISimple.h"; sourceTree = "<group>"; };
 		828F084F16C34C2F00CF73B3 /* NSColor+CISimple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+CISimple.m"; sourceTree = "<group>"; };
 		82C4DB7416D2A4C500B12F5F /* CISCisimpleDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CISCisimpleDelegate.h; sourceTree = "<group>"; };
-		82F0681E16CA87A900056E53 /* build-payload-started.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "build-payload-started.json"; path = "CISimple-notifierTests/build-payload-started.json"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,10 +170,6 @@
 		8224562016C2E06D008A8FA1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				8211E94A16CAB3DB00E4ADFE /* build-payload-queued.json */,
-				82F0681E16CA87A900056E53 /* build-payload-started.json */,
-				8211E94616CAA56100E4ADFE /* build-payload-completed.json */,
-				8211E94816CAA57600E4ADFE /* build-payload-finished.json */,
 				8224562116C2E06D008A8FA1 /* CISimple-notifier-Info.plist */,
 				8224562216C2E06D008A8FA1 /* InfoPlist.strings */,
 				8224562516C2E06D008A8FA1 /* main.m */,
@@ -313,13 +300,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82F0682016CA8E9000056E53 /* build-payload-started.json in Resources */,
 				8224562416C2E06D008A8FA1 /* InfoPlist.strings in Resources */,
 				8224562A16C2E06E008A8FA1 /* Credits.rtf in Resources */,
 				8224563016C2E06E008A8FA1 /* MainMenu.xib in Resources */,
-				8211E94716CAA56100E4ADFE /* build-payload-completed.json in Resources */,
-				8211E94916CAA57600E4ADFE /* build-payload-finished.json in Resources */,
-				8211E94B16CAB3DC00E4ADFE /* build-payload-queued.json in Resources */,
 				8211E94D16CAB87B00E4ADFE /* cisimple-logo.icns in Resources */,
 				823BF51416CD52DE004D99F1 /* icon_16x16.png in Resources */,
 				823BF51616CD5322004D99F1 /* icon_32x32.png in Resources */,
@@ -332,7 +315,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8224564116C2E06F008A8FA1 /* InfoPlist.strings in Resources */,
-				82F0681F16CA87A900056E53 /* build-payload-started.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

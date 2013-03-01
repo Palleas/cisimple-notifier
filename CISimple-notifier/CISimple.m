@@ -41,7 +41,7 @@ NSString * const kBuildUpdatedEventName = @"build-state-changed";
     }
 
     [[self sharedClient] GET: @"/user/channel"
-                  parameters:@{@"token" : self.token}
+                  parameters:@{}
                   completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
                       NSLog(@"Retrieved response");
                       
@@ -78,7 +78,7 @@ NSString * const kBuildUpdatedEventName = @"build-state-changed";
 {
     NSAssert(completion != nil, @"Completion block must not be nil");
 
-    NSString *authUrl = [@"/user/channel/auth?token=" stringByAppendingString: self.token];
+    NSString *authUrl = @"/user/channel/auth";
     [[self sharedClient] POST: authUrl parameters: parameters completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
         if (nil == error) {
             completion(response, nil);
@@ -93,6 +93,8 @@ NSString * const kBuildUpdatedEventName = @"build-state-changed";
     SVHTTPClient *client = [SVHTTPClient sharedClientWithIdentifier: @"cisimple"];
     client.basePath = @"https://www.cisimple.com";
     [client setValue:@"application/vnd.cisimple.v1" forHTTPHeaderField: @"Accept"];
+    NSString *authHeaderValue = [@"Bearer " stringByAppendingString:_token];
+    [client setValue:authHeaderValue forHTTPHeaderField: @"Authorization"];
 
     return client;
 }
