@@ -110,12 +110,7 @@ static NSString *kCISKeychainTokenAccountName = @"token";
     [buildChannel bindToEvent:kBuildUpdatedEventName block:^(id message) {
         NSLog(@"Received payload");
         CISBuild *build = [CISBuild buildWithDictionnary: message];
-        NSLog(@"Build #%@, phase = %d", build.buildNumber, build.phase);
-        
-        if (build.phase == CISBuildPhaseCompleted) {
-            NSLog(@"Phase is completed : ignoring");
-            return;
-        }
+        NSLog(@"Build #%@, phase = %d", build.buildNumber, build.state);
         
         NSUserNotification *n = [NSUserNotification notificationForBuild: build];
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification: n];
