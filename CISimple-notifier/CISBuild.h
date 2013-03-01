@@ -8,18 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ENUM(int, CISBuildPhase) {
-    CISBuildPhaseQueued = 0,
-    CISBuildPhaseStarted = 1,
-    CISBuildPhaseCompleted = 2,
-    CISBuildPhaseFinished = 3
+NS_ENUM(int, CISBuildState) {
+    CISBuildStateQueued = 0,
+    CISBuildStateRunning = 1,
+    CISBuildStateFinished = 2
 };
 
 @interface CISBuild : NSObject
 
 @property (nonatomic, assign) NSNumber *buildNumber;
 @property (nonatomic, strong) NSString *projectName;
-@property (nonatomic, assign) enum CISBuildPhase phase;
+@property (nonatomic, assign) enum CISBuildState state;
 @property (nonatomic, assign) BOOL success;
 
 + (CISBuild *)buildWithDictionnary:(NSDictionary *)dict;
