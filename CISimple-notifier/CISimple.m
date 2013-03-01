@@ -91,7 +91,7 @@ NSString * const kBuildUpdatedEventName = @"build-state-changed";
 - (SVHTTPClient *)sharedClient
 {
     SVHTTPClient *client = [SVHTTPClient sharedClientWithIdentifier: @"cisimple"];
-    client.basePath = @"https://staging.cisimple.com";
+    client.basePath = @"https://www.cisimple.com";
     
     return client;
 }
