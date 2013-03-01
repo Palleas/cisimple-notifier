@@ -39,7 +39,7 @@ NSString * const kBuildUpdatedEventName = @"build-state-changed";
         NSLog(@"Delegate respond to cisimpleClientStartedFetchingChannel : sending message");
         [self.delegate cisimpleClientStartedFetchingChannel: self];
     }
-    
+
     [[self sharedClient] GET: @"/user/channel"
                   parameters:@{@"token" : self.token}
                   completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
@@ -92,7 +92,8 @@ NSString * const kBuildUpdatedEventName = @"build-state-changed";
 {
     SVHTTPClient *client = [SVHTTPClient sharedClientWithIdentifier: @"cisimple"];
     client.basePath = @"https://www.cisimple.com";
-    
+    [client setValue:@"application/vnd.cisimple.v1" forHTTPHeaderField: @"Accept"];
+
     return client;
 }
 
