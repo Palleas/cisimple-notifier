@@ -8,10 +8,10 @@
 
 #import "CISBuild.h"
 
-static NSString *kBuildSuccessKeyPath = @"build.success";
+static NSString *kBuildSuccessKeyPath = @"build.successful";
 static NSString *kBuildNumberKeyPath = @"build.build_number";
-static NSString *kBuildPhaseKeyPath = @"build.phase.code";
-static NSString *kProjectNameKeyPath = @"job.friendly_name";
+static NSString *kBuildStateKeyPath = @"build.state";
+static NSString *kProjectNameKeyPath = @"job.name";
 
 @implementation CISBuild
 
@@ -26,15 +26,15 @@ static NSString *kProjectNameKeyPath = @"job.friendly_name";
     if (self) {
         self.buildNumber = [dict valueForKeyPath: kBuildNumberKeyPath];
         self.projectName = [dict valueForKeyPath: kProjectNameKeyPath];
+        self.success = (BOOL) [dict valueForKeyPath: kBuildSuccessKeyPath];
         
-        NSString *phaseCode = [dict valueForKeyPath: kBuildPhaseKeyPath];
-        if ([phaseCode isEqualToString: @"STARTED"]) {
-            self.phase = CISBuildPhaseStarted;
-        } else if ([phaseCode isEqualToString: @"COMPLETED"]) {
-            self.phase = CISBuildPhaseCompleted;
-        } else if ([phaseCode isEqualToString: @"FINISHED"]) {
-            self.phase = CISBuildPhaseFinished;
-            self.success = [[dict valueForKeyPath: kBuildSuccessKeyPath] intValue] == 1;
+        NSString *stateCode = [dict valueForKeyPath: kBuildStateKeyPath];
+        if ([stateCode isEqualToString: @"RUNNING"]) {
+            self.state = CISBuildStateRunning;
+        } else if ([stateCode isEqualToString: @"FINISHED"]) {
+            self.state = CISBuildStateFinished;
+        } else if ([stateCode isEqualToString: @"QUEUED"]) {
+            self.state = CISBuildStateQueued;
         }
     }
     
