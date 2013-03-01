@@ -16,16 +16,16 @@
     n.title = build.projectName;
     
     // CISBuildPhaseCompleted is not handled (too confusing for the user)
-    switch (build.phase) {
-        case CISBuildPhaseQueued:
+    switch (build.state) {
+        case CISBuildStateQueued:
             n.informativeText = [NSString stringWithFormat: @"Build #%@ was queued", build.buildNumber];
             break;
             
-        case CISBuildPhaseStarted:
+        case CISBuildStateRunning:
             n.informativeText = [NSString stringWithFormat: @"Build #%@ has started", build.buildNumber];
             break;
             
-        case CISBuildPhaseFinished:
+        case CISBuildStateFinished:
             if (build.success) {
                 n.informativeText = [NSString stringWithFormat: @"Build #%@ succeeded", build.buildNumber];
             } else {

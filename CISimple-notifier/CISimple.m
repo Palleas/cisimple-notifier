@@ -10,7 +10,7 @@
 #import "SVHTTPRequest.h"
 #import "NSHTTPError.h"
 
-NSString * const kBuildUpdatedEventName = @"build-progress-updated";
+NSString * const kBuildUpdatedEventName = @"build-state-changed";
 
 @implementation CISimple
 
@@ -41,7 +41,7 @@ NSString * const kBuildUpdatedEventName = @"build-progress-updated";
     }
     
     [[self sharedClient] GET: @"/user/channel"
-                  parameters:@{@"access_token" : self.token}
+                  parameters:@{@"token" : self.token}
                   completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
                       NSLog(@"Retrieved response");
                       
@@ -78,7 +78,7 @@ NSString * const kBuildUpdatedEventName = @"build-progress-updated";
 {
     NSAssert(completion != nil, @"Completion block must not be nil");
 
-    NSString *authUrl = [@"/user/channel/auth?access_token=" stringByAppendingString: self.token];
+    NSString *authUrl = [@"/user/channel/auth?token=" stringByAppendingString: self.token];
     [[self sharedClient] POST: authUrl parameters: parameters completion:^(id response, NSHTTPURLResponse *urlResponse, NSError *error) {
         if (nil == error) {
             completion(response, nil);
