@@ -17,7 +17,7 @@ Download it directly from [cisimple](https://www.cisimple.com/dev_center/#third_
     $ git clone git@github.com:Palleas/cisimple-notifier.git
     $ cd cisimple-notifier
     $ pod install
-    $ open CISimple-notifier.xcodeproj
+    $ open CISimple-notifier.xcworkspace
   
 ## Many thanks to...
 
