@@ -28,3 +28,7 @@ Download it directly from [cisimple](https://www.cisimple.com/dev_center/#third_
 ## Contribution
 
 I'm pretty sure there is room for improvement, feel free to report an issue or send me a pull-request! 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/Palleas/cisimple-notifier/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
