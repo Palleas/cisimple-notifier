@@ -1,29 +1,29 @@
-# cisimple notifier
+# shipio notifier
 
-![Hope Kevin won't mind if I steal his screenshot](https://dqybdml3bjzsy.cloudfront.net/assets/dev_center/third_party/screenshot1-1b1c063af294af814188383db4f8ab8a.png)
+(https://ship.io/assets/dev_center/third_party/screenshot1.png)
 
-This application connects to cisimple and sends you a notification when something happens on one of your jobs :
+This application connects to ship.io and sends you a notification when something happens on one of your jobs :
   
   * When a job was queued
   * When a job started
   * When a job succeeded / failed
 
-Download it directly from [cisimple](https://www.cisimple.com/dev_center/#third_party).
+Download it directly from [shipio](https://ship.io/help/#third_party).
 
 ## Installation
 
 (I'm assuming [cocoapods](http://cocoapods.org/) is installed on your machine)
 
-    $ git clone git@github.com:Palleas/cisimple-notifier.git
-    $ cd cisimple-notifier
+    $ git clone git@github.com:Palleas/shipio-notifier.git
+    $ cd shipio-notifier
     $ pod install
-    $ open CISimple-notifier.xcworkspace
+    $ open ShipIO-notifier.xcworkspace
   
 ## Many thanks to...
 
   * Sam Vermette for [SVHTTPRequest](https://github.com/samvermette/SVHTTPRequest)
   * Sam Soffes for [Bully](https://github.com/soffes/bully) and [SSkeychain](https://github.com/soffes/sskeychain)
-  * The guys at [cisimple](https://www.cisimple.com) for their life-saving service
+  * The guys at [shipio](https://ship.io) for their life-saving service
 
 ## Contribution
 
