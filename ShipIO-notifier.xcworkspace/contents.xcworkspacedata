@@ -5,6 +5,6 @@
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:shipio.xcodeproj">
+      location = "group:ShipIO-notifier.xcodeproj">
    </FileRef>
 </Workspace>
