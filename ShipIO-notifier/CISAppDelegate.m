@@ -23,7 +23,7 @@ static NSString *kCISKeychainTokenAccountName = @"token";
     BLYClient *bullyClient;
     BLYChannel *buildChannel;
     
-    // Shipio client
+    // Ship.io client
     ShipIO *shipio;
 
     // Properties (channel name, token)
@@ -62,7 +62,7 @@ static NSString *kCISKeychainTokenAccountName = @"token";
     NSLog(@"Will finish launching");
     NSError *error;
     
-    // Retrieve shipio token from keychain
+    // Retrieve ship.io token from keychain
     shipioToken = [SSKeychain passwordForService: kCISKeychainServiceName
                            account: kCISKeychainTokenAccountName
                              error: &error];
@@ -77,7 +77,7 @@ static NSString *kCISKeychainTokenAccountName = @"token";
                                              defaultButton: @"OK"
                                            alternateButton: nil
                                                otherButton: nil
-                                 informativeTextWithFormat: @"It looks like this is your first time running the application. You'll need to enter your API Token to connect to shipio."];
+                                 informativeTextWithFormat: @"It looks like this is your first time running the application. You'll need to enter your API Token to connect to ship.io."];
     
     [self presentPreferencesWindow];
     [activateAlert beginSheetModalForWindow: self.preferencesWindow
@@ -126,7 +126,7 @@ static NSString *kCISKeychainTokenAccountName = @"token";
 - (void)useApiToken:(NSString *)key
 {
     if (nil != shipio) {
-        NSLog(@"Already have a shipio account : setting nil");
+        NSLog(@"Already have a ship.io account : setting nil");
         shipio = nil;
     }
     
@@ -136,7 +136,7 @@ static NSString *kCISKeychainTokenAccountName = @"token";
         buildChannel = nil;
     }
     
-    NSLog(@"Creating shipio client with key %@", key);
+    NSLog(@"Creating ship.io client with key %@", key);
     shipio = [[ShipIO alloc] initWithToken: key delegate: self];
     
     [shipio retrieveChannelInfo:^(id response, NSError *error) {
@@ -163,7 +163,7 @@ static NSString *kCISKeychainTokenAccountName = @"token";
 
 - (IBAction)didPressQuit:(id)sender
 {
-    NSLog(@"Terminate shipio");
+    NSLog(@"Terminate ship.io");
     [[NSApplication sharedApplication] terminate: nil];
 }
 
@@ -190,7 +190,7 @@ static NSString *kCISKeychainTokenAccountName = @"token";
 
 - (IBAction)didPressGetAPIToken:(id)sender;
 {
-    NSLog(@"Opening shipio");
+    NSLog(@"Opening ship.io");
     NSURL *shipioURL = [NSURL URLWithString: @"https://ship.io/account"];
     [[NSWorkspace sharedWorkspace] openURL: shipioURL];
 }
@@ -227,7 +227,7 @@ static NSString *kCISKeychainTokenAccountName = @"token";
     NSLog(@"Started fetching channel");
     if (self.preferencesWindow.isVisible) {
         NSLog(@"Preferences window is visible -> showing progress view");
-        [self presentProgressView: @"Connecting to shipio..."];
+        [self presentProgressView: @"Connecting to ship.io..."];
     } else {
         NSLog(@"Preferences window is not visible -> not showing progress view");
     }
@@ -243,13 +243,13 @@ static NSString *kCISKeychainTokenAccountName = @"token";
                                      defaultButton: @"Dismiss"
                                    alternateButton: nil
                                        otherButton: nil
-                         informativeTextWithFormat: @"We were unable to connect to shipio with the specified API token. Please verify you have entered it correctly."];
+                         informativeTextWithFormat: @"We were unable to connect to ship.io with the specified API token. Please verify you have entered it correctly."];
     } else {
         errorSheet = [NSAlert alertWithMessageText: @"An error occured"
                                      defaultButton: @"Dismiss"
                                    alternateButton: nil
                                        otherButton: nil
-                         informativeTextWithFormat: @"An error occured when talking to shipio. Try again later."];
+                         informativeTextWithFormat: @"An error occured when talking to ship.io. Try again later."];
     }
 
     NSLog(@"Presenting preferences window");

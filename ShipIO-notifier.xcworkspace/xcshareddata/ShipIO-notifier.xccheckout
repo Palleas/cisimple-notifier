@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>E6E0C761-FE58-4FF9-A3E1-292392FDFB38</string>
+	<string>B6949AC9-E101-4D02-8374-A73BA136D1DB</string>
 	<key>IDESourceControlProjectName</key>
 	<string>ShipIO-notifier</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>DFECB9B2-445E-4246-92BF-250666D9A1D9</key>
-		<string>ssh://github.com/cisimple-team/cisimple-notifier.git</string>
+		<key>21CF806C-40CB-4B35-B99A-8D1C118623AA</key>
+		<string>ssh://github.com/shipio/shipio-notifier.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ShipIO-notifier.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>DFECB9B2-445E-4246-92BF-250666D9A1D9</key>
+		<key>21CF806C-40CB-4B35-B99A-8D1C118623AA</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/cisimple-team/cisimple-notifier.git</string>
+	<string>ssh://github.com/shipio/shipio-notifier.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>DFECB9B2-445E-4246-92BF-250666D9A1D9</string>
+	<string>21CF806C-40CB-4B35-B99A-8D1C118623AA</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>DFECB9B2-445E-4246-92BF-250666D9A1D9</string>
+			<string>21CF806C-40CB-4B35-B99A-8D1C118623AA</string>
 			<key>IDESourceControlWCCName</key>
-			<string>cisimple-notifier</string>
+			<string>shipio-notifier</string>
 		</dict>
 	</array>
 </dict>

@@ -1,4 +1,4 @@
-# shipio notifier
+# Ship.io Notifier
 
 ![screen shot](https://ship.io/assets/dev_center/third_party/screenshot1.png)
 
@@ -8,7 +8,7 @@ This application connects to ship.io and sends you a notification when something
   * When a job started
   * When a job succeeded / failed
 
-Download it directly from [shipio](https://ship.io/help/#third_party).
+Download it directly from [ship.io](https://ship.io/help/#third_party).
 
 ## Installation
 
@@ -23,7 +23,7 @@ Download it directly from [shipio](https://ship.io/help/#third_party).
 
   * Sam Vermette for [SVHTTPRequest](https://github.com/samvermette/SVHTTPRequest)
   * Sam Soffes for [Bully](https://github.com/soffes/bully) and [SSkeychain](https://github.com/soffes/sskeychain)
-  * The guys at [shipio](https://ship.io) for their life-saving service
+  * The guys at [ship.io](https://ship.io) for their life-saving service
 
 ## Contribution
 
