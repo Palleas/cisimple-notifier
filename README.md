@@ -1,6 +1,6 @@
 # Ship.io Notifier
 
-![screen shot](https://ship.io/assets/dev_center/third_party/screenshot1.png)
+![screen shot](/screenshot.png?raw=true)
 
 This application connects to ship.io and sends you a notification when something happens on one of your jobs :
   
