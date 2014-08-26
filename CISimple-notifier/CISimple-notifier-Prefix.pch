@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'CISimple-notifier' target in the 'CISimple-notifier' project
-//
-
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-#endif
